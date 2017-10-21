@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-16T03:38:09.129Z</updated>
+  <updated>2017-10-21T06:18:42.122Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,41 +17,53 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Git-SSH 配置和使用</title>
-    <link href="http://yoursite.com/2017/10/15/Git-SHH%E9%85%8D%E7%BD%AE/"/>
-    <id>http://yoursite.com/2017/10/15/Git-SHH配置/</id>
-    <published>2017-10-15T12:48:58.765Z</published>
-    <updated>2017-10-16T03:38:09.129Z</updated>
+    <title>滕王阁序</title>
+    <link href="http://yoursite.com/2017/10/17/%E6%BB%95%E7%8E%8B%E9%98%81%E5%BA%8F/"/>
+    <id>http://yoursite.com/2017/10/17/滕王阁序/</id>
+    <published>2017-10-17T06:10:44.000Z</published>
+    <updated>2017-10-21T06:18:42.122Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="设置Git的user-name和email"><a href="#设置Git的user-name和email" class="headerlink" title="设置Git的user name和email"></a>设置Git的user name和email</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --<span class="keyword">global</span> user.name <span class="string">"dc"</span></div><div class="line">$ git config --<span class="keyword">global</span> user.email <span class="string">"258263***3@qq.com"</span></div></pre></td></tr></table></figure><h1 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"258263***3@qq.com"</span></div></pre></td></tr></table></figure><p>连续3个回车。如果不需要密码的话。<br>最后得到了两个文件：id_rsa和id_rsa.pub<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Your public key has been saved <span class="keyword">in</span> ****.pub.</div><div class="line">The key fingerprint <span class="keyword">is</span>:</div><div class="line">SHA256:HxL1BS2*Pbng1O+cGnTfxaA7zP63OGuoeKbGSNjE <span class="number">258263</span>***<span class="number">3</span>@qq.com</div><div class="line">The key<span class="string">'s randomart image is:</span></div></pre></td></tr></table></figure></p><h1 id="添加密钥到ssh-agent"><a href="#添加密钥到ssh-agent" class="headerlink" title="添加密钥到ssh-agent"></a>添加密钥到ssh-agent</h1><p>确保 ssh-agent 是可用的。ssh-agent是一种控制用来保存公钥身份验证所使用的私钥的程序，其实ssh-agent就是一个密钥管理器，运行ssh-agent以后，使用ssh-add将私钥交给ssh-agent保管，其他程序需要身份验证的时候可以将验证申请交给ssh-agent来完成整个认证过程。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$  eval <span class="string">"$(ssh-agent -s)"</span></div><div class="line">Agent pid *<span class="number">0</span>**</div></pre></td></tr></table></figure></p><p>添加生成的 SSH key 到 ssh-agent<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ ssh-add ~/.ssh/id_rsa</div><div class="line">Enter passphrase <span class="keyword">for</span> /c/Users/onion/.ssh/id_rsa:</div><div class="line">Bad passphrase, <span class="keyword">try</span> again <span class="keyword">for</span> /c/Users/onion/.ssh/id_rsa:</div><div class="line">Bad passphrase, <span class="keyword">try</span> again <span class="keyword">for</span> /c/Users/onion/.ssh/id_rsa:</div><div class="line">Bad passphrase, <span class="keyword">try</span> again <span class="keyword">for</span> /c/Users/onion/.ssh/id_rsa:</div><div class="line">Identity added: /c/Users/onion/.ssh/id_rsa (/c/Users/onion/.ssh/id_rsa)</div></pre></td></tr></table></figure></p><p>SSHkey就保存在路径/c/Users/onion/.ssh/id_rsa下，用notepad++打开复制到GitHub即可</p><h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div><div class="line">Warning: Permanently added the RSA host key <span class="keyword">for</span> IP address <span class="string">'192.**.255.112'</span> to the list of known hosts.</div><div class="line">Hi oniondai! Yo<span class="string">u've successfully authenticated, but GitHub does not provide shell access.</span></div></pre></td></tr></table></figure><p>出现hi说明就没问题</p><h1 id="远程库配置"><a href="#远程库配置" class="headerlink" title="远程库配置"></a>远程库配置</h1><p>GitHub允许你添加多个Key。假定你有若干电脑，你一会儿在学校提交，一会儿在家里提交，只要把每台电脑的Key都添加到GitHub，就可以在每台电脑上往GitHub推送了。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote add origin oniondai/oniondai.github.io</div></pre></td></tr></table></figure><p>请千万注意，把上面的 oniondai替换成你自己的GitHub账户名，否则，你在本地关联的就是我的远程库，关联没有问题，但是你以后推送是推不上去的，因为你的SSH Key公钥不在我的账户列表中<br>接下来就可以把本地库的所有内容推送到远程库上<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push -u origin master</div></pre></td></tr></table></figure></p><p>好啦，静静等待git把你的代码Push上去吧~是不是很简单？</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><pre><code>1.https://segmentfault.com/a/11900000026456232.http://cuiqingcai.com/423.html</code></pre>]]></content>
+    <content type="html"><![CDATA[<h1 id="作者-王勃-唐"><a href="#作者-王勃-唐" class="headerlink" title="作者: 王勃(唐)"></a>作者: 王勃(唐)</h1><pre><code>豫章故郡，洪都新府。星分翼轸，地接衡庐。襟三江而带五湖，控蛮荆而引瓯越。物华天宝，龙光射牛斗之墟；人杰地灵，徐孺下陈蕃之榻。雄州雾列，俊采星驰。台隍枕夷夏之交，宾主尽东南之美。都督阎公之雅望，棨戟遥临；宇文新州之懿范，襜帷暂驻。十旬休假，胜友如云；千里逢迎，高朋满座。腾蛟起凤，孟学士之词宗；紫电青霜，王将军之武库。家君作宰，路出名区；童子何知，躬逢胜饯。时维九月，序属三秋。潦水尽而寒潭清，烟光凝而暮山紫。俨骖騑于上路，访风景于崇阿。临帝子之长洲，得仙人之旧馆。层峦耸翠，上出重霄；飞阁流丹，下临无地。鹤汀凫渚，穷岛屿之萦回；桂殿兰宫，即冈峦之体势。披绣闼，俯雕甍，山原旷其盈视，川泽纡其骇瞩。闾阎扑地，钟鸣鼎食之家；舸舰迷津，青雀黄龙之舳。云销雨霁，彩彻区明。落霞与孤鹜齐飞，秋水共长天一色。渔舟唱晚，响穷彭蠡之滨，雁阵惊寒，声断衡阳之浦。遥襟甫畅，逸兴遄飞。爽籁发而清风生，纤歌凝而白云遏。睢园绿竹，气凌彭泽之樽；邺水朱华，光照临川之笔。四美具，二难并。穷睇眄于中天，极娱游于暇日。天高地迥，觉宇宙之无穷；兴尽悲来，识盈虚之有数。望长安于日下，目吴会于云间。地势极而南溟深，天柱高而北辰远。关山难越，谁悲失路之人；萍水相逢，尽是他乡之客。怀帝阍而不见，奉宣室以何年？ 嗟乎！时运不齐，命途多舛。冯唐易老，李广难封。屈贾谊于长沙，非无圣主；窜梁鸿于海曲，岂乏明时？所赖君子见机，达人知命。老当益壮，宁移白首之心？穷且益坚，不坠青云之志。酌贪泉而觉爽，处涸辙以犹欢。北海虽赊，扶摇可接；东隅已逝，桑榆非晚。孟尝高洁，空余报国之情；阮籍猖狂，岂效穷途之哭！勃，三尺微命，一介书生。无路请缨，等终军之弱冠；有怀投笔，慕宗悫之长风。舍簪笏于百龄，奉晨昏于万里。非谢家之宝树，接孟氏之芳邻。他日趋庭，叨陪鲤对；今兹捧袂，喜托龙门。杨意不逢，抚凌云而自惜；钟期既遇，奏流水以何惭？呜乎！胜地不常，盛筵难再；兰亭已矣，梓泽丘墟。临别赠言，幸承恩于伟饯；登高作赋，是所望于群公。敢竭鄙怀，恭疏短引；一言均赋，四韵俱成。请洒潘江，各倾陆海云尔：滕王高阁临江渚，佩玉鸣鸾罢歌舞。</code></pre><p>　　画栋朝飞南浦云，珠帘暮卷西山雨。<br>　　闲云潭影日悠悠，物换星移几度秋。<br>　　阁中帝子今何在？槛外长江空自流。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;设置Git的user-name和email&quot;&gt;&lt;a href=&quot;#设置Git的user-name和email&quot; class=&quot;headerlink&quot; title=&quot;设置Git的user name和email&quot;&gt;&lt;/a&gt;设置Git的user name和email&lt;/
+        &lt;h1 id=&quot;作者-王勃-唐&quot;&gt;&lt;a href=&quot;#作者-王勃-唐&quot; class=&quot;headerlink&quot; title=&quot;作者: 王勃(唐)&quot;&gt;&lt;/a&gt;作者: 王勃(唐)&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;豫章故郡，洪都新府。星分翼轸，地接衡庐。襟三江而带五湖，控蛮荆而引瓯越。物华
       
     
     </summary>
     
+      <category term="诗词" scheme="http://yoursite.com/categories/%E8%AF%97%E8%AF%8D/"/>
     
-      <category term="编程" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="每天一诗词" scheme="http://yoursite.com/tags/%E6%AF%8F%E5%A4%A9%E4%B8%80%E8%AF%97%E8%AF%8D/"/>
     
   </entry>
   
   <entry>
-    <title>666</title>
-    <link href="http://yoursite.com/2016/06/01/example/"/>
-    <id>http://yoursite.com/2016/06/01/example/</id>
-    <published>2016-06-01T15:47:44.000Z</published>
-    <updated>2017-10-17T02:39:49.869Z</updated>
+    <title>不要跟我比懒，我懒得跟你比</title>
+    <link href="http://yoursite.com/2017/10/17/2017.10.21%E6%9D%82%E8%AE%B0/"/>
+    <id>http://yoursite.com/2017/10/17/2017.10.21杂记/</id>
+    <published>2017-10-17T05:50:44.000Z</published>
+    <updated>2017-10-21T06:07:01.117Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="早上"><a href="#早上" class="headerlink" title="早上"></a>早上</h1><p>  将近睡到十点起床，刷会动态洗了个澡就快十一点二十，匆忙去食堂吃完饭，就赶紧跑到了实验室</p><h1 id="中午"><a href="#中午" class="headerlink" title="中午"></a>中午</h1><p>总感觉累才能够让我感觉到充实，有事情可做，总比没有目标闲的无聊好得多。<br>有时候我又感觉自己很懒。比如说做这个博客，从开学到现在，拖拖拉拉那么久才做的有点样子<br>是不是我对自己要求太高了。退一步来讲，对于一个刚接触计算机开源知识一年不到的人来说，能做到这样算不算是不错了，懒人只能这样安慰自己<br>突然想到有人说我傻。但愿我就这样没心没肺的傻下去。<br>下午还有一些事情要处理。晚上留点时间学习吧。</p>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;h1 id=&quot;早上&quot;&gt;&lt;a href=&quot;#早上&quot; class=&quot;headerlink&quot; title=&quot;早上&quot;&gt;&lt;/a&gt;早上&lt;/h1&gt;&lt;p&gt;  将近睡到十点起床，刷会动态洗了个澡就快十一点二十，匆忙去食堂吃完饭，就赶紧跑到了实验室&lt;/p&gt;
+&lt;h1 id=&quot;中午&quot;&gt;&lt;a href=
+      
+    
     </summary>
     
-      <category term="Hexo教程" scheme="http://yoursite.com/categories/Hexo%E6%95%99%E7%A8%8B/"/>
+      <category term="周记" scheme="http://yoursite.com/categories/%E5%91%A8%E8%AE%B0/"/>
     
+    
+      <category term="杂谈" scheme="http://yoursite.com/tags/%E6%9D%82%E8%B0%88/"/>
     
   </entry>
   
