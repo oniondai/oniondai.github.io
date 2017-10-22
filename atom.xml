@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-22T02:50:33.717Z</updated>
+  <updated>2017-10-22T03:39:50.161Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>美丽的花儿</title>
+    <link href="http://yoursite.com/2017/10/22/%E7%BE%8E%E4%B8%BD%E7%9A%84%E8%8A%B1%E5%84%BF/"/>
+    <id>http://yoursite.com/2017/10/22/美丽的花儿/</id>
+    <published>2017-10-22T03:10:54.000Z</published>
+    <updated>2017-10-22T03:39:50.161Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>美丽花儿：<br><img src="http://img.blog.csdn.net/20171022113733477?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjY4ODQ1MDE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li></ul><hr><ul><li>可爱的小狗狗：<br><img src="http://img.blog.csdn.net/20171022113755379?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjY4ODQ1MDE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;美丽花儿：&lt;br&gt;&lt;img src=&quot;http://img.blog.csdn.net/20171022113733477?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjY4ODQ1MDE=/font/5a
+      
+    
+    </summary>
+    
+    
+      <category term="测试" scheme="http://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>声声慢·寻寻觅觅</title>
@@ -44,6 +68,35 @@
   </entry>
   
   <entry>
+    <title>不要跟我比懒，我懒得跟你比</title>
+    <link href="http://yoursite.com/2017/10/21/2017.10.21%E6%9D%82%E8%AE%B0/"/>
+    <id>http://yoursite.com/2017/10/21/2017.10.21杂记/</id>
+    <published>2017-10-21T05:50:44.000Z</published>
+    <updated>2017-10-22T03:13:26.011Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="早上"><a href="#早上" class="headerlink" title="早上"></a>早上</h1><hr><ul><li>将近睡到十点起床，刷会动态洗了个澡就快十一点二十，匆忙去食堂吃完饭，就赶紧跑到了实验室</li></ul><h1 id="中午"><a href="#中午" class="headerlink" title="中午"></a>中午</h1><hr><ul><li>总感觉累才能够让我感觉到充实，有事情可做，总比没有目标闲的无聊好得多。</li><li>有时候我又感觉自己很懒。比如说做这个博客，从开学到现在，拖拖拉拉那么久才做的有点样子</li><li>是不是我对自己要求太高了。退一步来讲，对于一个刚接触计算机开源知识一年不到的人来说，能做到这样算不算是不错了，懒人只能这样安慰自己</li><li>突然想到有人说我傻。傻不傻我也不知道。傻子一般不知道自己傻吧…</li><li>下午还有一些事情要处理。晚上留点时间学习吧。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;早上&quot;&gt;&lt;a href=&quot;#早上&quot; class=&quot;headerlink&quot; title=&quot;早上&quot;&gt;&lt;/a&gt;早上&lt;/h1&gt;&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;将近睡到十点起床，刷会动态洗了个澡就快十一点二十，匆忙去食堂吃完饭，就赶紧跑到了实验室&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 
+      
+    
+    </summary>
+    
+      <category term="周记" scheme="http://yoursite.com/categories/%E5%91%A8%E8%AE%B0/"/>
+    
+    
+      <category term="杂谈" scheme="http://yoursite.com/tags/%E6%9D%82%E8%B0%88/"/>
+    
+  </entry>
+  
+  <entry>
     <title>滕王阁序</title>
     <link href="http://yoursite.com/2017/10/17/%E6%BB%95%E7%8E%8B%E9%98%81%E5%BA%8F/"/>
     <id>http://yoursite.com/2017/10/17/滕王阁序/</id>
@@ -67,35 +120,6 @@
     
     
       <category term="每天一诗词" scheme="http://yoursite.com/tags/%E6%AF%8F%E5%A4%A9%E4%B8%80%E8%AF%97%E8%AF%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>不要跟我比懒，我懒得跟你比</title>
-    <link href="http://yoursite.com/2017/10/17/2017.10.21%E6%9D%82%E8%AE%B0/"/>
-    <id>http://yoursite.com/2017/10/17/2017.10.21杂记/</id>
-    <published>2017-10-17T05:50:44.000Z</published>
-    <updated>2017-10-21T06:58:41.446Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="早上"><a href="#早上" class="headerlink" title="早上"></a>早上</h1><hr><ul><li>将近睡到十点起床，刷会动态洗了个澡就快十一点二十，匆忙去食堂吃完饭，就赶紧跑到了实验室</li></ul><h1 id="中午"><a href="#中午" class="headerlink" title="中午"></a>中午</h1><hr><ul><li>总感觉累才能够让我感觉到充实，有事情可做，总比没有目标闲的无聊好得多。</li><li>有时候我又感觉自己很懒。比如说做这个博客，从开学到现在，拖拖拉拉那么久才做的有点样子</li><li>是不是我对自己要求太高了。退一步来讲，对于一个刚接触计算机开源知识一年不到的人来说，能做到这样算不算是不错了，懒人只能这样安慰自己</li><li>突然想到有人说我傻。傻不傻我也不知道。傻子一般不知道自己傻吧…</li><li>下午还有一些事情要处理。晚上留点时间学习吧。</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;早上&quot;&gt;&lt;a href=&quot;#早上&quot; class=&quot;headerlink&quot; title=&quot;早上&quot;&gt;&lt;/a&gt;早上&lt;/h1&gt;&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;将近睡到十点起床，刷会动态洗了个澡就快十一点二十，匆忙去食堂吃完饭，就赶紧跑到了实验室&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 
-      
-    
-    </summary>
-    
-      <category term="周记" scheme="http://yoursite.com/categories/%E5%91%A8%E8%AE%B0/"/>
-    
-    
-      <category term="杂谈" scheme="http://yoursite.com/tags/%E6%9D%82%E8%B0%88/"/>
     
   </entry>
   
