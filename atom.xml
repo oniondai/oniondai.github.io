@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-22T13:19:48.138Z</updated>
+  <updated>2017-10-23T08:38:23.004Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>望海潮·东南形胜</title>
+    <link href="http://yoursite.com/2017/10/23/%E6%9C%9B%E6%B5%B7%E6%BD%AE%C2%B7%E4%B8%9C%E5%8D%97%E5%BD%A2%E8%83%9C/"/>
+    <id>http://yoursite.com/2017/10/23/望海潮·东南形胜/</id>
+    <published>2017-10-23T08:33:33.000Z</published>
+    <updated>2017-10-23T08:38:23.004Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="柳永-宋"><a href="#柳永-宋" class="headerlink" title="柳永(宋)"></a>柳永(宋)</h1><hr><ul><li>东南形胜，三吴都会，钱塘自古繁华，烟柳画桥，风帘翠幕，参差十万人家。云树绕堤沙，怒涛卷霜雪，天堑无涯。市列珠玑，户盈罗绮，竞豪奢。</li><li>重湖叠巘清嘉。有三秋桂子，十里荷花。羌管弄晴，菱歌泛夜，嬉嬉钓叟莲娃。千骑拥高牙。乘醉听箫鼓，吟赏烟霞。异日图将好景，归去凤池夸。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;柳永-宋&quot;&gt;&lt;a href=&quot;#柳永-宋&quot; class=&quot;headerlink&quot; title=&quot;柳永(宋)&quot;&gt;&lt;/a&gt;柳永(宋)&lt;/h1&gt;&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;东南形胜，三吴都会，钱塘自古繁华，烟柳画桥，风帘翠幕，参差十万人家。云树绕堤沙，怒涛卷霜雪，天堑无
+      
+    
+    </summary>
+    
+    
+      <category term="每天一诗词" scheme="http://yoursite.com/tags/%E6%AF%8F%E5%A4%A9%E4%B8%80%E8%AF%97%E8%AF%8D/"/>
+    
+  </entry>
   
   <entry>
     <title>代码测试</title>
