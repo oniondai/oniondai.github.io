@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-06T06:35:56.846Z</updated>
+  <updated>2017-11-06T06:55:13.728Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>深入理解虚拟机、容器和Hyper技术</title>
     <link href="http://yoursite.com/2017/11/06/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%81%E5%AE%B9%E5%99%A8%E5%92%8CHyper%E6%8A%80%E6%9C%AF/"/>
     <id>http://yoursite.com/2017/11/06/深入理解虚拟机、容器和Hyper技术/</id>
-    <published>2017-11-06T04:21:24.791Z</published>
-    <updated>2017-11-06T06:35:56.846Z</updated>
+    <published>2017-11-06T06:39:44.000Z</published>
+    <updated>2017-11-06T06:55:13.728Z</updated>
     
     <content type="html"><![CDATA[<h1 id="深入理解虚拟机、容器和Hyper技术"><a href="#深入理解虚拟机、容器和Hyper技术" class="headerlink" title="深入理解虚拟机、容器和Hyper技术"></a>深入理解虚拟机、容器和Hyper技术</h1><hr><ul><li><p>【编者的话】本文首先介绍了操作系统，然后引出容器技术以及虚拟机技术，最后介绍了Docker和Hyper技术。通过本文可以清楚地对三者有感性认识。</p><h2 id="操作系统概述"><a href="#操作系统概述" class="headerlink" title="操作系统概述"></a>操作系统概述</h2></li><li><p>我们可以把操作系统简化为：操作系统 = 内核 + apps</p></li></ul><ul><li><p>其中内核负责管理底层硬件资源，包括CPU、内存、IO设备等，并向上为apps提供系统调用接口，上层apps应用必须通过系统调用方式使用硬件资源，通常并不能直接访问资源。这里的apps指的是用户接口，比如shell、gui、services、包管理工具等（linux的图形界面也是作为可选应用之一，而不像Windows是集成到内核中的），注意与我们手动安装的应用区别开来。同一个内核加上不同的apps，就构成了不同的操作系统发行版，比如Ubuntu、Red Hat、Android等。因此我们可以认为，不同的Linux发行版本其实就是由应用apps构成的环境的差别，比如默认安装的软件、链接库、软件包管理以及图形界面等。我们把所有这些apps环境打成一个包，就可以称之为镜像。</p></li><li><p>问题来了，假如我们同时有多个apps环境，能否在同一个内核上运行呢？因为操作系统只负责提供服务，而并不管为谁服务，因此同一个内核之上可以同时运行多个apps环境是没有问题的。比如假设我们现在有ubuntu和fedora的apps环境，即两个发行版镜像，分别位于/home/int32bit/ubuntu和/home/int32bit/fedora，我们最简单的方式，采用chroot工具即可快速切换到指定的应用环境中，相当于同时有多个apps环境在运行。</p><h2 id="容器技术"><a href="#容器技术" class="headerlink" title="容器技术"></a>容器技术</h2></li><li><p>我们以上通过chroot方式，感觉上就已经接近了容器的功能，但其实容器并没有那么简单，工作其实还差得远。首先要作为云资源管理还必须满足：</p><h2 id="资源隔离"><a href="#资源隔离" class="headerlink" title="资源隔离"></a>资源隔离</h2></li><li><p>因为云计算本质就是集中资源再分配（社会主义），再分配过程就是资源的逻辑划分，提供资源抽象的实现方式，我们暂且定义为虚拟实体，虚拟实体可以是虚拟机、容器等。虚拟实体必须满足隔离性，包括用户隔离（或者说权限隔离）、进程隔离、网络隔离、文件系统隔离等，即虚拟实体只能感知其内部的资源，并且自以为是独占整个资源空间，它既不能感知其所在宿主机的真实资源，也不能感知其他虚拟实体的资源。</p><h2 id="资源控制"><a href="#资源控制" class="headerlink" title="资源控制"></a>资源控制</h2></li><li><p>资源控制指为虚拟实体分配一定量的资源，虚拟实体得到所分配的资源，不能超出资源最大使用量。</p></li><li><p>以上是虚拟实体的两个最基本要求，当然还包括其他很多条件，比如安全、性能等。本文主要基于以上两个基本条件进行研究。</p><h2 id="虚拟机技术"><a href="#虚拟机技术" class="headerlink" title="虚拟机技术"></a>虚拟机技术</h2></li><li><p>显然满足以上两个条件，虚拟机是一种实现方式，这是因为：</p><ul><li>(1)隔离毋容置疑，因为不同的虚拟机运行在不同的内核，虚拟机内部是一个独立的隔离环境。</li><li>(2)资源控制也是毋容置疑的，Hypervisor能够对虚拟机分配指定的资源。</li></ul></li><li><p>目前OpenStack Nova和AWS EC2都是基于虚拟机提供计算服务，实现CPU、RAM、Disk等资源分配。其他比如Vagrant也是基于虚拟机快速构建应用环境。</p></li><li><p>但是虚拟机也带来很多问题，比如：</p><ul><li>(1)镜像臃肿庞大，不仅包括apps，还包括一个庞大的内核。</li><li>(2)创建和启动时间开销大，不利于应用快速构建重组。</li><li>(3)额外资源开销大，部署密度小。</li><li>(4)性能损耗。</li><li>(5)…</li></ul></li></ul><h2 id="容器技术-1"><a href="#容器技术-1" class="headerlink" title="容器技术"></a>容器技术</h2><ul><li><p>除了虚拟机，有没有其他实现方式能符合以上两个基本条件呢？容器技术便是另一种实现方式。表面上和我们使用chroot方式相似，所有的容器实例直接运行在宿主机中，所有实例共享宿主机的内核，而虚拟机实例内部的进程是运行在GuestOS中。由以上原理可知，容器相对于虚拟机有以上好处：</p><ul><li>(1)镜像体积更小，只包括apps以及所依赖的环境，没有内核。</li><li>(2)创建和启动快，不需要启动GuestOS，应用启动开销基本就是应用本身启动的时间开销。</li><li>(3)无GuestOS，无hypervisor，无额外资源开销，资源控制粒度更小，部署密度大。</li><li>(4)使用的是真实物理资源，因此不存在性能损耗。</li><li>(5)轻量级。</li><li>(6)…</li></ul></li><li><p>目前比较流行的容器实现比如LXC、LXD以及rkt等，我们需要验证容器是否能够实现资源隔离和控制。</p><h2 id="隔离性"><a href="#隔离性" class="headerlink" title="隔离性"></a>隔离性</h2></li><li><p>主要通过内核提供namespace技术实现隔离性，以下参考酷壳：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Linux Namespace是Linux提供的一种内核级别环境隔离的方法。不知道你是否还记得很早以前的Unix有一个叫chroot的系统调用（通过修改根目录把用户jail到一个特定目录下），chroot提供了一种简单的隔离模式：chroot内部的文件系统无法访问外部的内容。Linux Namespace在此基础上，提供了对UTS、IPC、mount、PID、network、User等的隔离机制。</div></pre></td></tr></table></figure><ul><li>Linux Namespace有如下种类：</li><li>(1)Mount Namespaces</li><li>(2)UTS Namespaces</li><li>(3)IPC Namespaces</li><li>(4)PID Namespaces</li><li>(5)Network Namespaces</li><li>(6)User Namespaces</li></ul></li><li><p>官方文档在这里《Namespace in Operation》。</p></li></ul><p>由上表可知，容器利用内核的Namespaces技术可以实现隔离性。比如网络隔离，我们可以通过sudo ip netns ls查看Namespaces，通过ip netns add NAME增加Namespaces，不同的Namespaces可以有不同的网卡、Router、iptables等。<br>资源控制</p><p>内核实现了对进程组的资源控制，即Linux Control Group，简称CGroup，它能为系统中运行进程组根据用户自定义组分配资源。简单来说，可以实现把多个进程合成一个组，然后对这个组的资源进行控制，比如CPU，内存大小、网络带宽、磁盘iops等，Linux把CGroup抽象成一个虚拟文件系统，可以挂载到指定的目录下，Ubuntu 14.04默认自动挂载在/sys/fs/cgroup下，用户也可以手动挂载，比如挂载Memory子系统（子系统可以实现某类资源的控制，比如CPU、Memory、blkio等）到/mnt下：<br>sudo mount  -t cgroup -o memory  memory /mnt</p><p>挂载后就能像查看本地文件一样浏览进程组以及资源控制情况，控制组并不是孤立的，而是组织成树状结构构成进程组树，控制组的子节点会继承父节点。下面以Memory子系统为例，<br>ls /sys/fs/cgroup/memory/</p><p>输出：<br>cgroup.clone_children  memory.kmem.failcnt                 memory.kmem.tcp.usage_in_bytes   memory.memsw.usage_in_bytes      memory.swappiness<br>cgroup.event_control   memory.kmem.limit_in_bytes          memory.kmem.usage_in_bytes       memory.move_charge_at_immigrate  memory.usage_in_bytes<br>cgroup.procs           memory.kmem.max_usage_in_bytes      memory.limit_in_bytes            memory.numa_stat                 memory.use_hierarchy<br>cgroup.sane_behavior   memory.kmem.slabinfo                memory.max_usage_in_bytes        memory.oom_control               notify_on_release<br>docker                 memory.kmem.tcp.failcnt             memory.memsw.failcnt             memory.pressure_level            release_agent<br>memory.failcnt         memory.kmem.tcp.limit_in_bytes      memory.memsw.limit_in_bytes      memory.soft_limit_in_bytes       tasks<br>memory.force_empty     memory.kmem.tcp.max_usage_in_bytes  memory.memsw.max_usage_in_bytes  memory.stat                      user</p><p>以上是根控制组的资源限制情况，我们以创建控制内存为4MB的Docker容器为例：<br>docker run  -m 4MB -d busybox ping localhost</p><p>返回ID为0532d4f4af67，自动会创建以Docker实例DI为名的控制组，位于/sys/fs/cgroup/memory/docker/0532d4f4af67…，我们查看该目录下的memory.limit_in_bytes文件内容为：<br>cat memory.limit_in_bytes<br>4194304</p><p>即最大的可使用的内存为4MB，正好是我们启动Docker所设定的。</p><p>由以上可知，容器可以通过CGroup实现资源控制。<br>Docker技术</p><p>在Docker之前其实容器技术早就有了，Google的Borg以及Omega都利用了容器技术。但是之前容器一直没有形成一个标准，也没有一个很好的管理工具。LXC是Linux原生支持的容器，很多工具依赖于具体的发行版，可能会出现移植性差的问题，并且也缺乏一组完善的管理工具集。而Docker基于底层的内核特性的基础上，在上层构建了一个更高层次的具备多个强大功能的工具集，它是PaaS提供商dotCloud开源的一个基于LXC的高级容器引擎，简单说Docker提供了一个能够方便管理容器的工具并形成标准。Docker相当于把应用以及应用所依赖的环境完完整整地打成了一个包，这个包拿到哪里都能原生运行。</p><p>其特性包括：<br>快速构建基于容器的分布式应用<br>具有容器的所有优点<br>提供原生的资源监控<br>自动构建和版本控制<br>快速构建和重组<br>…</p><p>Docker与虚拟机原理对比：<br>docker-and-vm.jpg</p><p>容器技术在很早就有了，因此不能说Docker发明了容器技术，而仅仅是发明了一套完整的管理容器的工具集。但其实Docker核心的创新在于它的镜像管理，因此有人说：</p><p>Docker = LXC + Docker Image<br>Docker镜像的创新之处在于使用了类似层次的文件系统AUFS，简单说就是一个镜像是由多个镜像层层叠加的，从一个Base镜像中通过加入一些软件构成一个新层的镜像，依次构成最后的镜像，如图：<br>docker-filesystems-multilayer.png</p><p>知乎：Docker的几点疑问:</p><p>Image的分层，可以想象成Photoshop中不同的layer。每一层中包含特定的文件，当Container运行时，这些叠加在一起的层就构成了Container的运行环境（包括相应的文件、运行库等，不包括内核）。Image通过依赖的关系，来确定整个镜像内到底包含那些文件。之后的版本的Docker，会推出Squash的功能，把不同的层压缩成为一个，和Photoshop中合并层的感觉差不多。<br>作者：Honglin Feng<br>链接：<a href="https://www.zhihu.com/question" target="_blank" rel="external">https://www.zhihu.com/question</a> … 71258<br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。<br>这里利用了COW（copy on write）技术，即从一个镜像启动一个容器实例，这个镜像是以只读形式挂载的，即不允许任何修改操作。当在容器实例中修改一个文件时，会首先从镜像里把这个文件拷贝到可写层，然后执行更新操作。当读一个文件时，会首先从可写层里找这个文件，若这个文件存在，直接返回文件内容，如果不存在这个文件，则会从最顶层的镜像开始查找，直到最底层的Base镜像。这里存在的一个问题是，当镜像层很多时，查找一个文件可能需要一层一层查找，影响性能。基于Ceph构建OpenStack创建虚拟机也一样的原理，我们上传一个镜像到Glance时，首先对这个镜像创建一个快照并保护起来不允许写操作，当基于这个镜像创建虚拟机时，直接从镜像快照克隆一个新的rbd image作为虚拟机的根磁盘，最开始这个根磁盘除了指向其parent快照的指针，没有任何内容，不占任何磁盘空间，当虚拟机需要修改一个对象时，首先从parent中拷贝这个对象到它所在的空间，再执行更新操作。当读一个文件时，如果存在这个文件，直接读取，否则需要去parent所在的image中查找。</p><p>这样的好处是：<br>节省存储空间——多个镜像共享Base Image存储；<br>节省网络带宽——拉取镜像时，只需要拉取本地没有的镜像层，本地已经存在的可以共享，避免多次传输拷贝；<br>节省内存空间——多个实例可共享Base Image，多个实例的进程命中缓存内容的几率大大增加。如果基于某个镜像启动一个虚拟机需要资源k，则启动n个同一个镜像的虚拟机需要占用资源kn，但如果基于某个镜像启动一个Docker容器需要资源k，无论启动多少个实例，资源都是k；<br>维护升级方便——相比于copy-on-write类型的FS，Base Image也是可以挂载为可Writeable的，可以通过更新Base Image而一次性更新其之上的Container；<br>允许在不更改Base Image的同时修改其目录中的文件——所有写操作都发生在最上层的writeable层中，这样可以大大增加Base Image能共享的文件内容。</p><p>使用容器技术，带来了很多优点，但同时也存在一些问题：<br>隔离性相对虚拟机弱-由于和宿主机共享内核，带来很大的安全隐患，容易发生逃逸。<br>如果某些应用需要特定的内核特性，使用容器不得不更换宿主机内核。<br>…</p><p>更多关于AUFS参考酷壳：Docker基础技术-AUFS。<br>Hyper技术</p><p>上文提到容器存在的问题，并且Docker的核心创新在于镜像管理，即：</p><p>Docker = LXC + Docker Image<br>于是就有人提出把容器替换成最初的Hypervisor，而又利用Docker Image的优势，接下来介绍的Hyper技术以及VMware最新的vic技术大体如此，Hyper官方定义：<br>Hyper - a Hypervisor-based Containerization solution<br>即：<br>Hyper = Hypervisor + Docker Image<br>简而言之Hyper是一种基于虚拟化技术（Hypervisor）的Docker引擎。官方认为：</p><p>虽然Hyper同样通过VM来运行Docker应用，但HyperVM里并没有GuestOS，相反的，一个HyperVM内部只有一个极简的HyperKernel，以及要运行的Docker镜像。这种Kernel Image的”固态”组合使得HyperVM和Docker容器一样，实现了Immutable Infrastructure的效果。借助VM天然的隔离性，Hyper能够完全避免LXC共享内核的安全隐患.<br>创建一个基于Hyper的Ubuntu：<br>sudo hyper run -t ubuntu:latest bash</p><p>创建时间小于1秒，确实达到启动容器的效率。</p><p>查看内核版本：<br>root@ubuntu-latest-7939453236:/# uname -a<br>Linux ubuntu-latest-7939453236 4.4.0-hyper  #0 SMP Mon Jan 25 01:10:46 CST 2016 x86_64 x86_64 x86_64 GNU/Linux</p><p>宿主机内核版本：<br>$ uname  -a<br>Linux lenovo 3.13.0-77-generic #121-Ubuntu SMP Wed Jan 20 10:50:42 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux</p><p>启动基于Docker的Ubuntu并查看内核版本：<br>$ docker run -t -i ubuntu:14.04 uname -a<br>Linux 73a88ca16d94 3.13.0-77-generic #121-Ubuntu SMP Wed Jan 20 10:50:42 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux</p><p>我们发现Docker和宿主机的内核版本是一样的，即3.13.0-77-generic，而Hyper内核不一样，版本为4.4.0-hyper。</p><p>以下为官方数据：<br>hyper.png</p><p>因此Hyper是容器和虚拟机的一种很好的折衷技术，未来可能前景广大，但需要进一步观察，我个人主要存在以下疑问：<br>使用极简的内核，会不会导致某些功能丢失？<br>是不是需要为每一个应用维护一个微内核？<br>有些应用需要特定内核，这些应用实际多么？可以通过其他方式避免么？<br>Hyper引擎能否提供和Docker引擎一样的api，能否在生态圈中相互替代？<br>隔离性加强的同时也牺牲了部分性能，如何权衡？</p><p>总结</p><p>近年来容器技术以及微服务架构非常火热，CaaS有取代传统IaaS的势头，未来云计算市场谁成为主流值得期待。</p>]]></content>
     
@@ -35,6 +35,37 @@
     
     </summary>
     
+      <category term="学习" scheme="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="编程" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IBM,I&#39;am Coming</title>
+    <link href="http://yoursite.com/2017/11/06/IBM%E6%B3%A8%E5%86%8C%E4%BA%A6%E6%AD%A5%E4%BA%A6%E8%B6%8B/"/>
+    <id>http://yoursite.com/2017/11/06/IBM注册亦步亦趋/</id>
+    <published>2017-11-06T06:39:44.000Z</published>
+    <updated>2017-11-06T06:56:03.310Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>IBM我真不想吐槽你对中国的歧视！CNMB</li><li>先前每天试一次去注册账号都告诉我失败，我以为你们是在维护服务器，这么大的公司不可能天天维护服务器，今天突发奇想科学用美国隧道注册了美国账号，把Gmail邮箱也定位到了美国，简简单单就注册成功了！<br><img src="/img/IBM.jpg" alt="注册成功截图"></li><li>总之很鸡冻，可以好好玩了</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;IBM我真不想吐槽你对中国的歧视！CNMB&lt;/li&gt;
+&lt;li&gt;先前每天试一次去注册账号都告诉我失败，我以为你们是在维护服务器，这么大的公司不可能天天维护服务器，今天突发奇想科学用美国隧道注册了美国账号，把Gmail邮箱也定位到了美国，简简单单就注册成功了！&lt;br
+      
+    
+    </summary>
+    
+      <category term="技术咖" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%E5%92%96/"/>
+    
+    
+      <category term="还是美国的IP好" scheme="http://yoursite.com/tags/%E8%BF%98%E6%98%AF%E7%BE%8E%E5%9B%BD%E7%9A%84IP%E5%A5%BD/"/>
     
   </entry>
   
