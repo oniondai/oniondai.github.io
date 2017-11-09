@@ -11,6 +11,16 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
 
@@ -276,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/06/IBM注册亦步亦趋/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/09/苏幕遮_碧云天_范仲淹(北宋)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="AICO">
@@ -295,7 +305,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/06/IBM注册亦步亦趋/" itemprop="url">IBM,I'am Coming</a></h1>
+                <a class="post-title-link" href="/2017/11/09/苏幕遮_碧云天_范仲淹(北宋)/" itemprop="url">苏幕遮·碧云天</a></h1>
         
 
         <div class="post-meta">
@@ -307,8 +317,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T14:39:44+08:00">
-                2017-11-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-09T22:28:44+08:00">
+                2017-11-09
               </time>
             
 
@@ -330,8 +340,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术咖/" itemprop="url" rel="index">
-                    <span itemprop="name">技术咖</span>
+                  <a href="/categories/诗词/" itemprop="url" rel="index">
+                    <span itemprop="name">诗词</span>
                   </a>
                 </span>
 
@@ -361,7 +371,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  113
+                  69
                 </span>
               
 
@@ -400,10 +410,12 @@
       
         
           
-            <ul>
-<li>IBM我真不想吐槽你对中国的歧视！CNMB</li>
-<li>先前每天试一次去注册账号都告诉我失败，我以为你们是在维护服务器，这么大的公司不可能天天维护服务器，今天突发奇想科学用美国隧道注册了美国账号，把Gmail邮箱也定位到了美国，简简单单就注册成功了！<br><img src="/img/IBM.jpg" alt="注册成功截图"></li>
-<li>总之很鸡冻，可以好好玩了</li>
+            <h2 id="作者：范仲淹-北宋"><a href="#作者：范仲淹-北宋" class="headerlink" title="作者：范仲淹(北宋)"></a>作者：范仲淹(北宋)</h2><hr>
+<ul>
+<li><p>碧云天，黄叶地，秋色连波，波上寒烟翠。山映斜阳天接水，芳草无情，更在斜阳外。</p>
+</li>
+<li><p>黯乡魂，追旅思，夜夜除非，好梦留人睡。明月楼高休独倚，酒入愁肠，化作相思泪。</p>
+</li>
 </ul>
 
           
@@ -670,12 +682,25 @@
 <p>创建时间小于1秒，确实达到启动容器的效率。</p>
 <p>查看内核版本：<br>root@ubuntu-latest-7939453236:/# uname -a<br>Linux ubuntu-latest-7939453236 4.4.0-hyper  #0 SMP Mon Jan 25 01:10:46 CST 2016 x86_64 x86_64 x86_64 GNU/Linux</p>
 <p>宿主机内核版本：<br>$ uname  -a<br>Linux lenovo 3.13.0-77-generic #121-Ubuntu SMP Wed Jan 20 10:50:42 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux</p>
-<p>启动基于Docker的Ubuntu并查看内核版本：<br>$ docker run -t -i ubuntu:14.04 uname -a<br>Linux 73a88ca16d94 3.13.0-77-generic #121-Ubuntu SMP Wed Jan 20 10:50:42 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux</p>
-<p>我们发现Docker和宿主机的内核版本是一样的，即3.13.0-77-generic，而Hyper内核不一样，版本为4.4.0-hyper。</p>
-<p>以下为官方数据：<br>hyper.png</p>
-<p>因此Hyper是容器和虚拟机的一种很好的折衷技术，未来可能前景广大，但需要进一步观察，我个人主要存在以下疑问：<br>使用极简的内核，会不会导致某些功能丢失？<br>是不是需要为每一个应用维护一个微内核？<br>有些应用需要特定内核，这些应用实际多么？可以通过其他方式避免么？<br>Hyper引擎能否提供和Docker引擎一样的api，能否在生态圈中相互替代？<br>隔离性加强的同时也牺牲了部分性能，如何权衡？</p>
-<p>总结</p>
-<p>近年来容器技术以及微服务架构非常火热，CaaS有取代传统IaaS的势头，未来云计算市场谁成为主流值得期待。</p>
+<p>启动基于Docker的Ubuntu并查看内核版本：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker run -t -i ubuntu:<span class="number">14.04</span> uname -a</div><div class="line">Linux <span class="number">73</span>a88ca16d94 <span class="number">3.13</span><span class="number">.0</span><span class="number">-77</span>-generic <span class="comment">#121-Ubuntu SMP Wed Jan 20 10:50:42 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>我们发现Docker和宿主机的内核版本是一样的，即3.13.0-77-generic，而Hyper内核不一样，版本为4.4.0-hyper。</p>
+</li>
+<li><p>以下为官方数据：<br>hyper.png</p>
+</li>
+<li><p>因此Hyper是容器和虚拟机的一种很好的折衷技术，未来可能前景广大，但需要进一步观察，我个人主要存在以下疑问：</p>
+<ul>
+<li>使用极简的内核，会不会导致某些功能丢失？</li>
+<li>是不是需要为每一个应用维护一个微内核？</li>
+<li>有些应用需要特定内核，这些应用实际多么？可以通过其他方式避免么？</li>
+<li>Hyper引擎能否提供和Docker引擎一样的api，能否在生态圈中相互替代？</li>
+<li>隔离性加强的同时也牺牲了部分性能，如何权衡？</li>
+</ul>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>近年来容器技术以及微服务架构非常火热，CaaS有取代传统IaaS的势头，未来云计算市场谁成为主流值得期待。</li>
+</ul>
 
           
         
@@ -2260,7 +2285,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2271,7 +2296,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
