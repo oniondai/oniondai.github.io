@@ -410,15 +410,17 @@
       
         
           
-            <h2 id="作者：范仲淹-北宋"><a href="#作者：范仲淹-北宋" class="headerlink" title="作者：范仲淹(北宋)"></a>作者：范仲淹(北宋)</h2><hr>
-<ul>
-<li><p>碧云天，黄叶地，秋色连波，波上寒烟翠。山映斜阳天接水，芳草无情，更在斜阳外。</p>
-</li>
-<li><p>黯乡魂，追旅思，夜夜除非，好梦留人睡。明月楼高休独倚，酒入愁肠，化作相思泪。</p>
-</li>
-</ul>
+          作者：范仲淹(北宋)
 
-          
+碧云天，黄叶地，秋色连波，波上寒烟翠。山映斜阳天接水，芳草无情，更在斜阳外。
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/09/苏幕遮_碧云天_范仲淹(北宋)/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -592,117 +594,17 @@
       
         
           
-            <h1 id="深入理解虚拟机、容器和Hyper技术"><a href="#深入理解虚拟机、容器和Hyper技术" class="headerlink" title="深入理解虚拟机、容器和Hyper技术"></a>深入理解虚拟机、容器和Hyper技术</h1><hr>
-<ul>
-<li><p>【编者的话】本文首先介绍了操作系统，然后引出容器技术以及虚拟机技术，最后介绍了Docker和Hyper技术。通过本文可以清楚地对三者有感性认识。</p>
-<h2 id="操作系统概述"><a href="#操作系统概述" class="headerlink" title="操作系统概述"></a>操作系统概述</h2></li>
-<li><p>我们可以把操作系统简化为：操作系统 = 内核 + apps</p>
-</li>
-</ul>
-<ul>
-<li><p>其中内核负责管理底层硬件资源，包括CPU、内存、IO设备等，并向上为apps提供系统调用接口，上层apps应用必须通过系统调用方式使用硬件资源，通常并不能直接访问资源。这里的apps指的是用户接口，比如shell、gui、services、包管理工具等（linux的图形界面也是作为可选应用之一，而不像Windows是集成到内核中的），注意与我们手动安装的应用区别开来。同一个内核加上不同的apps，就构成了不同的操作系统发行版，比如Ubuntu、Red Hat、Android等。因此我们可以认为，不同的Linux发行版本其实就是由应用apps构成的环境的差别，比如默认安装的软件、链接库、软件包管理以及图形界面等。我们把所有这些apps环境打成一个包，就可以称之为镜像。</p>
-</li>
-<li><p>问题来了，假如我们同时有多个apps环境，能否在同一个内核上运行呢？因为操作系统只负责提供服务，而并不管为谁服务，因此同一个内核之上可以同时运行多个apps环境是没有问题的。比如假设我们现在有ubuntu和fedora的apps环境，即两个发行版镜像，分别位于/home/int32bit/ubuntu和/home/int32bit/fedora，我们最简单的方式，采用chroot工具即可快速切换到指定的应用环境中，相当于同时有多个apps环境在运行。</p>
-<h2 id="容器技术"><a href="#容器技术" class="headerlink" title="容器技术"></a>容器技术</h2></li>
-<li><p>我们以上通过chroot方式，感觉上就已经接近了容器的功能，但其实容器并没有那么简单，工作其实还差得远。首先要作为云资源管理还必须满足：</p>
-<h2 id="资源隔离"><a href="#资源隔离" class="headerlink" title="资源隔离"></a>资源隔离</h2></li>
-<li><p>因为云计算本质就是集中资源再分配（社会主义），再分配过程就是资源的逻辑划分，提供资源抽象的实现方式，我们暂且定义为虚拟实体，虚拟实体可以是虚拟机、容器等。虚拟实体必须满足隔离性，包括用户隔离（或者说权限隔离）、进程隔离、网络隔离、文件系统隔离等，即虚拟实体只能感知其内部的资源，并且自以为是独占整个资源空间，它既不能感知其所在宿主机的真实资源，也不能感知其他虚拟实体的资源。</p>
-<h2 id="资源控制"><a href="#资源控制" class="headerlink" title="资源控制"></a>资源控制</h2></li>
-<li><p>资源控制指为虚拟实体分配一定量的资源，虚拟实体得到所分配的资源，不能超出资源最大使用量。</p>
-</li>
-<li><p>以上是虚拟实体的两个最基本要求，当然还包括其他很多条件，比如安全、性能等。本文主要基于以上两个基本条件进行研究。</p>
-<h2 id="虚拟机技术"><a href="#虚拟机技术" class="headerlink" title="虚拟机技术"></a>虚拟机技术</h2></li>
-<li><p>显然满足以上两个条件，虚拟机是一种实现方式，这是因为：</p>
-<ul>
-<li>(1)隔离毋容置疑，因为不同的虚拟机运行在不同的内核，虚拟机内部是一个独立的隔离环境。</li>
-<li>(2)资源控制也是毋容置疑的，Hypervisor能够对虚拟机分配指定的资源。</li>
-</ul>
-</li>
-<li><p>目前OpenStack Nova和AWS EC2都是基于虚拟机提供计算服务，实现CPU、RAM、Disk等资源分配。其他比如Vagrant也是基于虚拟机快速构建应用环境。</p>
-</li>
-<li><p>但是虚拟机也带来很多问题，比如：</p>
-<ul>
-<li>(1)镜像臃肿庞大，不仅包括apps，还包括一个庞大的内核。</li>
-<li>(2)创建和启动时间开销大，不利于应用快速构建重组。</li>
-<li>(3)额外资源开销大，部署密度小。</li>
-<li>(4)性能损耗。</li>
-<li>(5)…</li>
-</ul>
-</li>
-</ul>
-<h2 id="容器技术-1"><a href="#容器技术-1" class="headerlink" title="容器技术"></a>容器技术</h2><ul>
-<li><p>除了虚拟机，有没有其他实现方式能符合以上两个基本条件呢？容器技术便是另一种实现方式。表面上和我们使用chroot方式相似，所有的容器实例直接运行在宿主机中，所有实例共享宿主机的内核，而虚拟机实例内部的进程是运行在GuestOS中。由以上原理可知，容器相对于虚拟机有以上好处：</p>
-<ul>
-<li>(1)镜像体积更小，只包括apps以及所依赖的环境，没有内核。</li>
-<li>(2)创建和启动快，不需要启动GuestOS，应用启动开销基本就是应用本身启动的时间开销。</li>
-<li>(3)无GuestOS，无hypervisor，无额外资源开销，资源控制粒度更小，部署密度大。</li>
-<li>(4)使用的是真实物理资源，因此不存在性能损耗。</li>
-<li>(5)轻量级。</li>
-<li>(6)…</li>
-</ul>
-</li>
-<li><p>目前比较流行的容器实现比如LXC、LXD以及rkt等，我们需要验证容器是否能够实现资源隔离和控制。</p>
-<h2 id="隔离性"><a href="#隔离性" class="headerlink" title="隔离性"></a>隔离性</h2></li>
-<li><p>主要通过内核提供namespace技术实现隔离性，以下参考酷壳：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Linux Namespace是Linux提供的一种内核级别环境隔离的方法。不知道你是否还记得很早以前的Unix有一个叫chroot的系统调用（通过修改根目录把用户jail到一个特定目录下），chroot提供了一种简单的隔离模式：chroot内部的文件系统无法访问外部的内容。Linux Namespace在此基础上，提供了对UTS、IPC、mount、PID、network、User等的隔离机制。</div></pre></td></tr></table></figure>
-<ul>
-<li>Linux Namespace有如下种类：</li>
-<li>(1)Mount Namespaces</li>
-<li>(2)UTS Namespaces</li>
-<li>(3)IPC Namespaces</li>
-<li>(4)PID Namespaces</li>
-<li>(5)Network Namespaces</li>
-<li>(6)User Namespaces</li>
-</ul>
-</li>
-<li><p>官方文档在这里《Namespace in Operation》。</p>
-</li>
-</ul>
-<p>由上表可知，容器利用内核的Namespaces技术可以实现隔离性。比如网络隔离，我们可以通过sudo ip netns ls查看Namespaces，通过ip netns add NAME增加Namespaces，不同的Namespaces可以有不同的网卡、Router、iptables等。<br>资源控制</p>
-<p>内核实现了对进程组的资源控制，即Linux Control Group，简称CGroup，它能为系统中运行进程组根据用户自定义组分配资源。简单来说，可以实现把多个进程合成一个组，然后对这个组的资源进行控制，比如CPU，内存大小、网络带宽、磁盘iops等，Linux把CGroup抽象成一个虚拟文件系统，可以挂载到指定的目录下，Ubuntu 14.04默认自动挂载在/sys/fs/cgroup下，用户也可以手动挂载，比如挂载Memory子系统（子系统可以实现某类资源的控制，比如CPU、Memory、blkio等）到/mnt下：<br>sudo mount  -t cgroup -o memory  memory /mnt</p>
-<p>挂载后就能像查看本地文件一样浏览进程组以及资源控制情况，控制组并不是孤立的，而是组织成树状结构构成进程组树，控制组的子节点会继承父节点。下面以Memory子系统为例，<br>ls /sys/fs/cgroup/memory/</p>
-<p>输出：<br>cgroup.clone_children  memory.kmem.failcnt                 memory.kmem.tcp.usage_in_bytes   memory.memsw.usage_in_bytes      memory.swappiness<br>cgroup.event_control   memory.kmem.limit_in_bytes          memory.kmem.usage_in_bytes       memory.move_charge_at_immigrate  memory.usage_in_bytes<br>cgroup.procs           memory.kmem.max_usage_in_bytes      memory.limit_in_bytes            memory.numa_stat                 memory.use_hierarchy<br>cgroup.sane_behavior   memory.kmem.slabinfo                memory.max_usage_in_bytes        memory.oom_control               notify_on_release<br>docker                 memory.kmem.tcp.failcnt             memory.memsw.failcnt             memory.pressure_level            release_agent<br>memory.failcnt         memory.kmem.tcp.limit_in_bytes      memory.memsw.limit_in_bytes      memory.soft_limit_in_bytes       tasks<br>memory.force_empty     memory.kmem.tcp.max_usage_in_bytes  memory.memsw.max_usage_in_bytes  memory.stat                      user</p>
-<p>以上是根控制组的资源限制情况，我们以创建控制内存为4MB的Docker容器为例：<br>docker run  -m 4MB -d busybox ping localhost</p>
-<p>返回ID为0532d4f4af67，自动会创建以Docker实例DI为名的控制组，位于/sys/fs/cgroup/memory/docker/0532d4f4af67…，我们查看该目录下的memory.limit_in_bytes文件内容为：<br>cat memory.limit_in_bytes<br>4194304</p>
-<p>即最大的可使用的内存为4MB，正好是我们启动Docker所设定的。</p>
-<p>由以上可知，容器可以通过CGroup实现资源控制。<br>Docker技术</p>
-<p>在Docker之前其实容器技术早就有了，Google的Borg以及Omega都利用了容器技术。但是之前容器一直没有形成一个标准，也没有一个很好的管理工具。LXC是Linux原生支持的容器，很多工具依赖于具体的发行版，可能会出现移植性差的问题，并且也缺乏一组完善的管理工具集。而Docker基于底层的内核特性的基础上，在上层构建了一个更高层次的具备多个强大功能的工具集，它是PaaS提供商dotCloud开源的一个基于LXC的高级容器引擎，简单说Docker提供了一个能够方便管理容器的工具并形成标准。Docker相当于把应用以及应用所依赖的环境完完整整地打成了一个包，这个包拿到哪里都能原生运行。</p>
-<p>其特性包括：<br>快速构建基于容器的分布式应用<br>具有容器的所有优点<br>提供原生的资源监控<br>自动构建和版本控制<br>快速构建和重组<br>…</p>
-<p>Docker与虚拟机原理对比：<br>docker-and-vm.jpg</p>
-<p>容器技术在很早就有了，因此不能说Docker发明了容器技术，而仅仅是发明了一套完整的管理容器的工具集。但其实Docker核心的创新在于它的镜像管理，因此有人说：</p>
-<p>Docker = LXC + Docker Image<br>Docker镜像的创新之处在于使用了类似层次的文件系统AUFS，简单说就是一个镜像是由多个镜像层层叠加的，从一个Base镜像中通过加入一些软件构成一个新层的镜像，依次构成最后的镜像，如图：<br>docker-filesystems-multilayer.png</p>
-<p>知乎：Docker的几点疑问:</p>
-<p>Image的分层，可以想象成Photoshop中不同的layer。每一层中包含特定的文件，当Container运行时，这些叠加在一起的层就构成了Container的运行环境（包括相应的文件、运行库等，不包括内核）。Image通过依赖的关系，来确定整个镜像内到底包含那些文件。之后的版本的Docker，会推出Squash的功能，把不同的层压缩成为一个，和Photoshop中合并层的感觉差不多。<br>作者：Honglin Feng<br>链接：<a href="https://www.zhihu.com/question" target="_blank" rel="external">https://www.zhihu.com/question</a> … 71258<br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。<br>这里利用了COW（copy on write）技术，即从一个镜像启动一个容器实例，这个镜像是以只读形式挂载的，即不允许任何修改操作。当在容器实例中修改一个文件时，会首先从镜像里把这个文件拷贝到可写层，然后执行更新操作。当读一个文件时，会首先从可写层里找这个文件，若这个文件存在，直接返回文件内容，如果不存在这个文件，则会从最顶层的镜像开始查找，直到最底层的Base镜像。这里存在的一个问题是，当镜像层很多时，查找一个文件可能需要一层一层查找，影响性能。基于Ceph构建OpenStack创建虚拟机也一样的原理，我们上传一个镜像到Glance时，首先对这个镜像创建一个快照并保护起来不允许写操作，当基于这个镜像创建虚拟机时，直接从镜像快照克隆一个新的rbd image作为虚拟机的根磁盘，最开始这个根磁盘除了指向其parent快照的指针，没有任何内容，不占任何磁盘空间，当虚拟机需要修改一个对象时，首先从parent中拷贝这个对象到它所在的空间，再执行更新操作。当读一个文件时，如果存在这个文件，直接读取，否则需要去parent所在的image中查找。</p>
-<p>这样的好处是：<br>节省存储空间——多个镜像共享Base Image存储；<br>节省网络带宽——拉取镜像时，只需要拉取本地没有的镜像层，本地已经存在的可以共享，避免多次传输拷贝；<br>节省内存空间——多个实例可共享Base Image，多个实例的进程命中缓存内容的几率大大增加。如果基于某个镜像启动一个虚拟机需要资源k，则启动n个同一个镜像的虚拟机需要占用资源kn，但如果基于某个镜像启动一个Docker容器需要资源k，无论启动多少个实例，资源都是k；<br>维护升级方便——相比于copy-on-write类型的FS，Base Image也是可以挂载为可Writeable的，可以通过更新Base Image而一次性更新其之上的Container；<br>允许在不更改Base Image的同时修改其目录中的文件——所有写操作都发生在最上层的writeable层中，这样可以大大增加Base Image能共享的文件内容。</p>
-<p>使用容器技术，带来了很多优点，但同时也存在一些问题：<br>隔离性相对虚拟机弱-由于和宿主机共享内核，带来很大的安全隐患，容易发生逃逸。<br>如果某些应用需要特定的内核特性，使用容器不得不更换宿主机内核。<br>…</p>
-<p>更多关于AUFS参考酷壳：Docker基础技术-AUFS。<br>Hyper技术</p>
-<p>上文提到容器存在的问题，并且Docker的核心创新在于镜像管理，即：</p>
-<p>Docker = LXC + Docker Image<br>于是就有人提出把容器替换成最初的Hypervisor，而又利用Docker Image的优势，接下来介绍的Hyper技术以及VMware最新的vic技术大体如此，Hyper官方定义：<br>Hyper - a Hypervisor-based Containerization solution<br>即：<br>Hyper = Hypervisor + Docker Image<br>简而言之Hyper是一种基于虚拟化技术（Hypervisor）的Docker引擎。官方认为：</p>
-<p>虽然Hyper同样通过VM来运行Docker应用，但HyperVM里并没有GuestOS，相反的，一个HyperVM内部只有一个极简的HyperKernel，以及要运行的Docker镜像。这种Kernel Image的”固态”组合使得HyperVM和Docker容器一样，实现了Immutable Infrastructure的效果。借助VM天然的隔离性，Hyper能够完全避免LXC共享内核的安全隐患.<br>创建一个基于Hyper的Ubuntu：<br>sudo hyper run -t ubuntu:latest bash</p>
-<p>创建时间小于1秒，确实达到启动容器的效率。</p>
-<p>查看内核版本：<br>root@ubuntu-latest-7939453236:/# uname -a<br>Linux ubuntu-latest-7939453236 4.4.0-hyper  #0 SMP Mon Jan 25 01:10:46 CST 2016 x86_64 x86_64 x86_64 GNU/Linux</p>
-<p>宿主机内核版本：<br>$ uname  -a<br>Linux lenovo 3.13.0-77-generic #121-Ubuntu SMP Wed Jan 20 10:50:42 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux</p>
-<p>启动基于Docker的Ubuntu并查看内核版本：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker run -t -i ubuntu:<span class="number">14.04</span> uname -a</div><div class="line">Linux <span class="number">73</span>a88ca16d94 <span class="number">3.13</span><span class="number">.0</span><span class="number">-77</span>-generic <span class="comment">#121-Ubuntu SMP Wed Jan 20 10:50:42 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux</span></div></pre></td></tr></table></figure></p>
-<ul>
-<li><p>我们发现Docker和宿主机的内核版本是一样的，即3.13.0-77-generic，而Hyper内核不一样，版本为4.4.0-hyper。</p>
-</li>
-<li><p>以下为官方数据：<br>hyper.png</p>
-</li>
-<li><p>因此Hyper是容器和虚拟机的一种很好的折衷技术，未来可能前景广大，但需要进一步观察，我个人主要存在以下疑问：</p>
-<ul>
-<li>使用极简的内核，会不会导致某些功能丢失？</li>
-<li>是不是需要为每一个应用维护一个微内核？</li>
-<li>有些应用需要特定内核，这些应用实际多么？可以通过其他方式避免么？</li>
-<li>Hyper引擎能否提供和Docker引擎一样的api，能否在生态圈中相互替代？</li>
-<li>隔离性加强的同时也牺牲了部分性能，如何权衡？</li>
-</ul>
-</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li>近年来容器技术以及微服务架构非常火热，CaaS有取代传统IaaS的势头，未来云计算市场谁成为主流值得期待。</li>
-</ul>
+          深入理解虚拟机、容器和Hyper技术
 
-          
+【编者的话】本文首先介绍了操作系统，然后引出容器技术以及虚拟
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/06/深入理解虚拟机、容器和Hyper技术/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -876,17 +778,17 @@
       
         
           
-            <h1 id="范仲淹-宋"><a href="#范仲淹-宋" class="headerlink" title="范仲淹(宋)"></a>范仲淹(宋)</h1><hr>
-<ul>
-<li>庆历四年春，滕子京谪守巴陵郡。越明年，政通人和，百废具兴。乃重修岳阳楼，增其旧制，刻唐贤今人诗赋于其上。属予作文以记之。</li>
-<li>予观夫巴陵胜状，在洞庭一湖。衔远山，吞长江，浩浩汤汤，横无际涯；朝晖夕阴，气象万千。此则岳阳楼之大观也，前人之述备矣。然则北通巫峡，南极潇湘，迁客骚人，多会于此，览物之情，得无异乎?</li>
-<li>若夫霪雨霏霏，连月不开，阴风怒号，浊浪排空；日星隐曜，山岳潜形；商旅不行，樯倾楫摧；薄暮冥冥，虎啸猿啼。登斯楼也，则有去国怀乡，忧谗畏讥，满目萧然，感极而悲者矣。</li>
-<li>至若春和景明，波澜不惊，上下天光，一碧万顷；沙鸥翔集，锦鳞游泳；岸芷汀兰，郁郁青青。而或长烟一空，皓月千里，浮光跃金，静影沉璧，渔歌互答，此乐何极！登斯楼也，则有心旷神怡，宠辱偕忘，把酒临风，其喜洋洋者矣。</li>
-<li>嗟夫！予尝求古仁人之心，或异二者之为，何哉？不以物喜，不以己悲；居庙堂之高则忧其民；处江湖之远则忧其君。是进亦忧，退亦忧。然则何时而乐耶？其必曰：“先天下之忧而忧，后天下之乐而乐”乎。噫！微斯人，吾谁与归？</li>
-<li>时六年九月十五日。</li>
-</ul>
+          范仲淹(宋)
 
-          
+庆历四年春，滕子京谪守巴陵郡。越明年，政通人和，百废具兴。乃重修岳阳楼，增其旧制，刻
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/06/岳阳楼记_范仲淹(宋)/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1060,38 +962,17 @@
       
         
           
-            <p> <del>-<em>-coding:utf-8-</em>-</del></p>
-<ul>
-<li>1、字典<br>例<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dict = &#123;<span class="string">'name'</span>: <span class="string">'Zara'</span>, <span class="string">'age'</span>: <span class="number">7</span>, <span class="string">'class'</span>: <span class="string">'First'</span>&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>字典转为字符串，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;type <span class="string">'str'</span>&gt; &#123;<span class="string">'age'</span>: <span class="number">7</span>, <span class="string">'name'</span>: <span class="string">'Zara'</span>, <span class="string">'class'</span>: <span class="string">'First'</span>&#125;</div><div class="line"><span class="keyword">print</span> type(str(dict)), str(dict)</div></pre></td></tr></table></figure></p>
-<p>字典可以转为元组，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(<span class="string">'age'</span>, <span class="string">'name'</span>, <span class="string">'class'</span>)</div><div class="line"><span class="keyword">print</span> tuple(dict)</div></pre></td></tr></table></figure></p>
-<p>字典可以转为元组，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(<span class="number">7</span>, <span class="string">'Zara'</span>, <span class="string">'First'</span>)</div><div class="line"><span class="keyword">print</span> tuple(dict.values())</div></pre></td></tr></table></figure></p>
-<p>字典转为列表，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="string">'age'</span>, <span class="string">'name'</span>, <span class="string">'class'</span>]</div><div class="line"><span class="keyword">print</span> list(dict)</div></pre></td></tr></table></figure></p>
-<p>字典转为列表<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> dict.values</div></pre></td></tr></table></figure></p>
-<ul>
-<li>2、元组<br>例<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tup=(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>元组转为字符串，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</div><div class="line"><span class="keyword">print</span> tup.__str__()</div></pre></td></tr></table></figure></p>
-<p>元组转为列表，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</div><div class="line"><span class="keyword">print</span> list(tup)</div></pre></td></tr></table></figure></p>
-<p>元组不可以转为字典</p>
-<ul>
-<li>3、列表<br>例<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nums=[<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">13</span>, <span class="number">20</span>];</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>列表转为字符串，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">13</span>, <span class="number">20</span>]</div><div class="line"><span class="keyword">print</span> str(nums)</div></pre></td></tr></table></figure></p>
-<p>列表转为元组，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">13</span>, <span class="number">20</span>)</div><div class="line"><span class="keyword">print</span> tuple(nums)</div></pre></td></tr></table></figure></p>
-<p>列表不可以转为字典</p>
-<ul>
-<li>4、字符串</li>
-</ul>
-<p>字符串转为元组，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</div><div class="line"><span class="keyword">print</span> tuple(eval(<span class="string">"(1,2,3)"</span>))</div></pre></td></tr></table></figure></p>
-<p>字符串转为列表，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line"><span class="keyword">print</span> list(eval(<span class="string">"(1,2,3)"</span>))</div></pre></td></tr></table></figure></p>
-<p>字符串转为字典，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;type <span class="string">'dict'</span>&gt;</div><div class="line"><span class="keyword">print</span> type(eval(<span class="string">"&#123;'name':'ljq', 'age':24&#125;"</span>))</div></pre></td></tr></table></figure></p>
+           --coding:utf-8--
 
-          
+1、字典例1dict = &#123;'name': 'Zar
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/05/python相关知识点/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1264,18 +1145,15 @@
 
       
         
-          
-            <ul>
-<li>都说高考能改变人的命运，经验告诉我，考研究生才能真正改变人的命运，拿半年的辛苦，换来一辈子的高报酬</li>
-<li>有时候感觉周六周天，如果不看书，不知道要干什么。想玩的时候我就会出去玩，比如上午我学了一上午，下午我就出去玩，买了一些东西。到了晚上我会来实验室学到十二点</li>
-<li>这个东西真的不是为别人打工，是在给自己做投资，给自己镀金。</li>
-<li>你可学你想学的，但不能不学，不能不考研</li>
-<li>人真的会受环境的影响，你身边的人。只有进入优秀的环境，你的思想就会进入另一个阶层，自己也会变得优秀</li>
-<li>给自己定个目标！无论遇到什么困难，不要怀疑自己，尝试去解决！</li>
-<li>不希望看到你大学毕业后一事无成沦为平庸的人</li>
-</ul>
-
-          
+          <ul>
+<li></li></ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/05/寄语/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1449,13 +1327,17 @@
       
         
           
-            <h1 id="作者-柳永-宋"><a href="#作者-柳永-宋" class="headerlink" title="作者:柳永(宋)"></a>作者:柳永(宋)</h1><hr>
-<ul>
-<li>东南形胜，三吴都会，钱塘自古繁华，烟柳画桥，风帘翠幕，参差十万人家。云树绕堤沙，怒涛卷霜雪，天堑无涯。市列珠玑，户盈罗绮，竞豪奢。</li>
-<li>重湖叠巘清嘉。有三秋桂子，十里荷花。羌管弄晴，菱歌泛夜，嬉嬉钓叟莲娃。千骑拥高牙。乘醉听箫鼓，吟赏烟霞。异日图将好景，归去凤池夸。</li>
-</ul>
+          作者:柳永(宋)
 
-          
+东南形胜，三吴都会，钱塘自古繁华，烟柳画桥，风帘翠幕，参差十万人家。云树绕堤沙，
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/23/望海潮·东南形胜/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1629,11 +1511,16 @@
       
         
           
-            <ul>
-<li><del>代码测试？</del> 代码在哪？<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div></pre></td><td class="code"><pre><div class="line">第一步generate_captcha.py</div><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> captcha.image <span class="keyword">import</span> ImageCaptcha</div><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> random</div><div class="line"><span class="keyword">import</span> string</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">generateCaptcha</span><span class="params">()</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,</span></span></div><div class="line"><span class="function"><span class="params">                 width = <span class="number">160</span>,#验证码图片的宽</span></span></div><div class="line"><span class="function"><span class="params">                 height = <span class="number">60</span>,#验证码图片的高</span></span></div><div class="line"><span class="function"><span class="params">                 char_num = <span class="number">4</span>,#验证码字符个数</span></span></div><div class="line"><span class="function"><span class="params">                 characters = string.digits + string.ascii_uppercase + string.ascii_lowercase)</span>:</span><span class="comment">#验证码组成，数字+大写字母+小写字母</span></div><div class="line">        self.width = width</div><div class="line">        self.height = height</div><div class="line">        self.char_num = char_num</div><div class="line">        self.characters = characters</div><div class="line">        self.classes = len(characters)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">gen_captcha</span><span class="params">(self,batch_size = <span class="number">50</span>)</span>:</span></div><div class="line">        X = np.zeros([batch_size,self.height,self.width,<span class="number">1</span>])</div><div class="line">        img = np.zeros((self.height,self.width),dtype=np.uint8)</div><div class="line">        Y = np.zeros([batch_size,self.char_num,self.classes])</div><div class="line">        image = ImageCaptcha(width = self.width,height = self.height)</div><div class="line"></div><div class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(batch_size):</div><div class="line">                captcha_str = <span class="string">''</span>.join(random.sample(self.characters,self.char_num))</div><div class="line">                img = image.generate_image(captcha_str).convert(<span class="string">'L'</span>)</div><div class="line">                img = np.array(img.getdata())</div><div class="line">                X[i] = np.reshape(img,[self.height,self.width,<span class="number">1</span>])/<span class="number">255.0</span></div><div class="line">                <span class="keyword">for</span> j,ch <span class="keyword">in</span> enumerate(captcha_str):</div><div class="line">                    Y[i,j,self.characters.find(ch)] = <span class="number">1</span></div><div class="line">            Y = np.reshape(Y,(batch_size,self.char_num*self.classes))</div><div class="line">            <span class="keyword">yield</span> X,Y</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decode_captcha</span><span class="params">(self,y)</span>:</span></div><div class="line">        y = np.reshape(y,(len(y),self.char_num,self.classes))</div><div class="line">        <span class="keyword">return</span> <span class="string">''</span>.join(self.characters[x] <span class="keyword">for</span> x <span class="keyword">in</span> np.argmax(y,axis = <span class="number">2</span>)[<span class="number">0</span>,:])</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_parameter</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.width,self.height,self.char_num,self.characters,self.classes</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">gen_test_captcha</span><span class="params">(self)</span>:</span></div><div class="line">        image = ImageCaptcha(width = self.width,height = self.height)</div><div class="line">        captcha_str = <span class="string">''</span>.join(random.sample(self.characters,self.char_num))</div><div class="line">        img = image.generate_image(captcha_str)</div><div class="line">        img.save(captcha_str + <span class="string">'.jpg'</span>)</div><div class="line">		</div><div class="line">		</div><div class="line">		</div><div class="line">		</div><div class="line">然后执行:</div><div class="line">cd /home/ubuntu;</div><div class="line">python</div><div class="line"><span class="keyword">import</span> generate_captcha</div><div class="line">g = generate_captcha.generateCaptcha()</div><div class="line">g.gen_test_captcha()</div><div class="line"></div><div class="line">	</div><div class="line">	</div><div class="line">	</div><div class="line">第二部	<span class="comment">###captcha_model.py</span></div><div class="line">	</div><div class="line">	<span class="comment">#!/usr/bin/python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div><div class="line"><span class="keyword">import</span> math</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">captchaModel</span><span class="params">()</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,</span></span></div><div class="line"><span class="function"><span class="params">                 width = <span class="number">160</span>,</span></span></div><div class="line"><span class="function"><span class="params">                 height = <span class="number">60</span>,</span></span></div><div class="line"><span class="function"><span class="params">                 char_num = <span class="number">4</span>,</span></span></div><div class="line"><span class="function"><span class="params">                 classes = <span class="number">62</span>)</span>:</span></div><div class="line">        self.width = width</div><div class="line">        self.height = height</div><div class="line">        self.char_num = char_num</div><div class="line">        self.classes = classes</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">conv2d</span><span class="params">(self,x, W)</span>:</span></div><div class="line">        <span class="keyword">return</span> tf.nn.conv2d(x, W, strides=[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], padding=<span class="string">'SAME'</span>)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">max_pool_2x2</span><span class="params">(self,x)</span>:</span></div><div class="line">        <span class="keyword">return</span> tf.nn.max_pool(x, ksize=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>],</div><div class="line">                              strides=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>], padding=<span class="string">'SAME'</span>)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">weight_variable</span><span class="params">(self,shape)</span>:</span></div><div class="line">        initial = tf.truncated_normal(shape, stddev=<span class="number">0.1</span>)</div><div class="line">        <span class="keyword">return</span> tf.Variable(initial)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">bias_variable</span><span class="params">(self,shape)</span>:</span></div><div class="line">        initial = tf.constant(<span class="number">0.1</span>, shape=shape)</div><div class="line">        <span class="keyword">return</span> tf.Variable(initial)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">create_model</span><span class="params">(self,x_images,keep_prob)</span>:</span></div><div class="line">        <span class="comment">#first layer</span></div><div class="line">        w_conv1 = self.weight_variable([<span class="number">5</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">32</span>])</div><div class="line">        b_conv1 = self.bias_variable([<span class="number">32</span>])</div><div class="line">        h_conv1 = tf.nn.relu(tf.nn.bias_add(self.conv2d(x_images, w_conv1), b_conv1))</div><div class="line">        h_pool1 = self.max_pool_2x2(h_conv1)</div><div class="line">        h_dropout1 = tf.nn.dropout(h_pool1,keep_prob)</div><div class="line">        conv_width = math.ceil(self.width/<span class="number">2</span>)</div><div class="line">        conv_height = math.ceil(self.height/<span class="number">2</span>)</div><div class="line"></div><div class="line">        <span class="comment">#second layer</span></div><div class="line">        w_conv2 = self.weight_variable([<span class="number">5</span>, <span class="number">5</span>, <span class="number">32</span>, <span class="number">64</span>])</div><div class="line">        b_conv2 = self.bias_variable([<span class="number">64</span>])</div><div class="line">        h_conv2 = tf.nn.relu(tf.nn.bias_add(self.conv2d(h_dropout1, w_conv2), b_conv2))</div><div class="line">        h_pool2 = self.max_pool_2x2(h_conv2)</div><div class="line">        h_dropout2 = tf.nn.dropout(h_pool2,keep_prob)</div><div class="line">        conv_width = math.ceil(conv_width/<span class="number">2</span>)</div><div class="line">        conv_height = math.ceil(conv_height/<span class="number">2</span>)</div><div class="line"></div><div class="line">        <span class="comment">#third layer</span></div><div class="line">        w_conv3 = self.weight_variable([<span class="number">5</span>, <span class="number">5</span>, <span class="number">64</span>, <span class="number">64</span>])</div><div class="line">        b_conv3 = self.bias_variable([<span class="number">64</span>])</div><div class="line">        h_conv3 = tf.nn.relu(tf.nn.bias_add(self.conv2d(h_dropout2, w_conv3), b_conv3))</div><div class="line">        h_pool3 = self.max_pool_2x2(h_conv3)</div><div class="line">        h_dropout3 = tf.nn.dropout(h_pool3,keep_prob)</div><div class="line">        conv_width = math.ceil(conv_width/<span class="number">2</span>)</div><div class="line">        conv_height = math.ceil(conv_height/<span class="number">2</span>)</div><div class="line"></div><div class="line">        <span class="comment">#first fully layer</span></div><div class="line">        conv_width = int(conv_width)</div><div class="line">        conv_height = int(conv_height)</div><div class="line">        w_fc1 = self.weight_variable([<span class="number">64</span>*conv_width*conv_height,<span class="number">1024</span>])</div><div class="line">        b_fc1 = self.bias_variable([<span class="number">1024</span>])</div><div class="line">        h_dropout3_flat = tf.reshape(h_dropout3,[<span class="number">-1</span>,<span class="number">64</span>*conv_width*conv_height])</div><div class="line">        h_fc1 = tf.nn.relu(tf.nn.bias_add(tf.matmul(h_dropout3_flat, w_fc1), b_fc1))</div><div class="line">        h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)</div><div class="line"></div><div class="line">        <span class="comment">#second fully layer</span></div><div class="line">        w_fc2 = self.weight_variable([<span class="number">1024</span>,self.char_num*self.classes])</div><div class="line">        b_fc2 = self.bias_variable([self.char_num*self.classes])</div><div class="line">        y_conv = tf.add(tf.matmul(h_fc1_drop, w_fc2), b_fc2)</div><div class="line"></div><div class="line">        <span class="keyword">return</span> y_conv	</div><div class="line">		</div><div class="line">		</div><div class="line">		</div><div class="line">		</div><div class="line">		</div><div class="line">		第三部train_captcha.py，</div><div class="line">		<span class="comment">#!/usr/bin/python</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> string</div><div class="line"><span class="keyword">import</span> generate_captcha</div><div class="line"><span class="keyword">import</span> captcha_model</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    captcha = generate_captcha.generateCaptcha()</div><div class="line">    width,height,char_num,characters,classes = captcha.get_parameter()</div><div class="line"></div><div class="line">    x = tf.placeholder(tf.float32, [<span class="keyword">None</span>, height,width,<span class="number">1</span>])</div><div class="line">    y_ = tf.placeholder(tf.float32, [<span class="keyword">None</span>, char_num*classes])</div><div class="line">    keep_prob = tf.placeholder(tf.float32)</div><div class="line"></div><div class="line">    model = captcha_model.captchaModel(width,height,char_num,classes)</div><div class="line">    y_conv = model.create_model(x,keep_prob)</div><div class="line">    cross_entropy = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(labels=y_,logits=y_conv))</div><div class="line">    train_step = tf.train.AdamOptimizer(<span class="number">1e-4</span>).minimize(cross_entropy)</div><div class="line"></div><div class="line">    predict = tf.reshape(y_conv, [<span class="number">-1</span>,char_num, classes])</div><div class="line">    real = tf.reshape(y_,[<span class="number">-1</span>,char_num, classes])</div><div class="line">    correct_prediction = tf.equal(tf.argmax(predict,<span class="number">2</span>), tf.argmax(real,<span class="number">2</span>))</div><div class="line">    correct_prediction = tf.cast(correct_prediction, tf.float32)</div><div class="line">    accuracy = tf.reduce_mean(correct_prediction)</div><div class="line"></div><div class="line">    saver = tf.train.Saver()</div><div class="line">    <span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</div><div class="line">        sess.run(tf.global_variables_initializer())</div><div class="line">        step = <span class="number">0</span></div><div class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">            batch_x,batch_y = next(captcha.gen_captcha(<span class="number">64</span>))</div><div class="line">            _,loss = sess.run([train_step,cross_entropy],feed_dict=&#123;x: batch_x, y_: batch_y, keep_prob: <span class="number">0.75</span>&#125;)</div><div class="line">            <span class="keyword">print</span> (<span class="string">'step:%d,loss:%f'</span> % (step,loss))</div><div class="line">            <span class="keyword">if</span> step % <span class="number">100</span> == <span class="number">0</span>:</div><div class="line">                batch_x_test,batch_y_test = next(captcha.gen_captcha(<span class="number">100</span>))</div><div class="line">                acc = sess.run(accuracy, feed_dict=&#123;x: batch_x_test, y_: batch_y_test, keep_prob: <span class="number">1.</span>&#125;)</div><div class="line">                <span class="keyword">print</span> (<span class="string">'###############################################step:%d,accuracy:%f'</span> % (step,acc))</div><div class="line">                <span class="keyword">if</span> acc &gt; <span class="number">0.99</span>:</div><div class="line">                    saver.save(sess,<span class="string">"capcha_model.ckpt"</span>)</div><div class="line">                    <span class="keyword">break</span></div><div class="line">            step += <span class="number">1</span></div><div class="line">		</div><div class="line">		</div><div class="line">第四部predict_captcha.py</div><div class="line"></div><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image, ImageFilter</div><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> string</div><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">import</span> generate_captcha</div><div class="line"><span class="keyword">import</span> captcha_model</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    captcha = generate_captcha.generateCaptcha()</div><div class="line">    width,height,char_num,characters,classes = captcha.get_parameter()</div><div class="line"></div><div class="line">    gray_image = Image.open(sys.argv[<span class="number">1</span>]).convert(<span class="string">'L'</span>)</div><div class="line">    img = np.array(gray_image.getdata())</div><div class="line">    test_x = np.reshape(img,[height,width,<span class="number">1</span>])/<span class="number">255.0</span></div><div class="line">    x = tf.placeholder(tf.float32, [<span class="keyword">None</span>, height,width,<span class="number">1</span>])</div><div class="line">    keep_prob = tf.placeholder(tf.float32)</div><div class="line"></div><div class="line">    model = captcha_model.captchaModel(width,height,char_num,classes)</div><div class="line">    y_conv = model.create_model(x,keep_prob)</div><div class="line">    predict = tf.argmax(tf.reshape(y_conv, [<span class="number">-1</span>,char_num, classes]),<span class="number">2</span>)</div><div class="line">    init_op = tf.global_variables_initializer()</div><div class="line">    saver = tf.train.Saver()</div><div class="line">    gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=<span class="number">0.95</span>)</div><div class="line">    <span class="keyword">with</span> tf.Session(config=tf.ConfigProto(log_device_placement=<span class="keyword">False</span>,gpu_options=gpu_options)) <span class="keyword">as</span> sess:</div><div class="line">        sess.run(init_op)</div><div class="line">        saver.restore(sess, <span class="string">"capcha_model.ckpt"</span>)</div><div class="line">        pre_list =  sess.run(predict,feed_dict=&#123;x: [test_x], keep_prob: <span class="number">1</span>&#125;)</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> pre_list:</div><div class="line">            s = <span class="string">''</span></div><div class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> i:</div><div class="line">                s += characters[j]</div><div class="line">            <span class="keyword">print</span> s</div></pre></td></tr></table></figure></li>
-</ul>
-
           
+代码测试？ 代码在哪？12345678910111213141516171819202122232
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/22/代码测试/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1807,16 +1694,21 @@
       
         
           
-            <ul>
-<li>美丽花儿：<br><img src="http://img.blog.csdn.net/20171022113733477?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjY4ODQ1MDE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
-</ul>
-<hr>
-<ul>
-<li>可爱的小狗狗：<br><img src="http://img.blog.csdn.net/20171022113755379?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjY4ODQ1MDE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
-<li><del>可爱的小狗狗</del> 这哪是狗？！明明是头驴！（只听那志博说关我啥事…）<br><img src="/img/donkey1.jpg" alt="明明是头驴"></li>
-</ul>
-
           
+美丽花儿：
+
+
+
+可爱的小狗狗：
+可爱的小狗狗 这哪是狗？！明明是头驴！（只听那志博说关我啥事…）
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/22/美丽的花儿/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1990,13 +1882,17 @@
       
         
           
-            <h2 id="作者：李清照-宋"><a href="#作者：李清照-宋" class="headerlink" title="作者：李清照(宋)"></a>作者：李清照(宋)</h2><hr>
-<ul>
-<li>寻寻觅觅，冷冷清清，凄凄惨惨戚戚。乍暖还寒时候，最难将息。三杯两盏淡酒，怎敌他、晚来风急？雁过也，正伤心，却是旧时相识。</li>
-<li>满地黄花堆积。憔悴损，如今有谁堪摘？守着窗儿，独自怎生得黑？梧桐更兼细雨，到黄昏、点点滴滴。这次第，怎一个愁字了得！</li>
-</ul>
+          作者：李清照(宋)
 
-          
+寻寻觅觅，冷冷清清，凄凄惨惨戚戚。乍暖还寒时候，最难将息。三杯两盏淡酒，怎敌他
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/22/声声慢：寻寻觅觅/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2170,20 +2066,19 @@
       
         
           
-            <h1 id="早上"><a href="#早上" class="headerlink" title="早上"></a>早上</h1><hr>
-<ul>
-<li>将近睡到十点起床，刷会动态洗了个澡就快十一点二十，匆忙去食堂吃完饭，就赶紧跑到了实验室</li>
-</ul>
-<h1 id="中午"><a href="#中午" class="headerlink" title="中午"></a>中午</h1><hr>
-<ul>
-<li>总感觉累才能够让我感觉到充实，有事情可做，总比没有目标闲的无聊好得多。</li>
-<li>有时候我又感觉自己很懒。比如说做这个博客，从开学到现在，拖拖拉拉那么久才做的有点样子</li>
-<li>是不是我对自己要求太高了。退一步来讲，对于一个刚接触计算机开源知识一年不到的人来说，能做到这样算不算是不错了，懒人只能这样安慰自己</li>
-<li>突然想到有人说我傻。傻不傻我也不知道。傻子一般不知道自己傻吧…</li>
-<li>下午还有一些事情要处理。晚上留点时间学习吧。</li>
-</ul>
+          早上
 
-          
+将近睡到十点起床，刷会动态洗了个澡就快十一点二十，匆忙去食堂吃完饭，就赶紧跑到了实验室
+
+中
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/21/2017.10.21杂记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
