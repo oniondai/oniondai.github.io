@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-10T08:33:11.945Z</updated>
+  <updated>2017-11-10T09:48:55.703Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,13 +17,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Test</title>
+    <title>Video Test</title>
     <link href="http://yoursite.com/2017/11/10/%E8%A7%86%E9%A2%91%E6%B5%8B%E8%AF%95/"/>
     <id>http://yoursite.com/2017/11/10/视频测试/</id>
     <published>2017-11-10T08:33:11.202Z</published>
-    <updated>2017-11-10T08:33:11.945Z</updated>
+    <updated>2017-11-10T09:48:55.703Z</updated>
     
-    <content type="html"><![CDATA[<ul><li>励志短片：坚不可摧<iframe height="498" width="510" src="http://m.yxgapp.com/d/mooc/GetShareShortVideo.html?courseId=4880" frameborder="0" allowfullscreen></iframe></li></ul>]]></content>
+    <content type="html"><![CDATA[<ul><li>励志短片：坚不可摧<iframe height="498" width="510" src="http://m.yxgapp.com/d/mooc/GetShareShortVideo.html?courseId=4880" frameborder="0" allowfullscreen></iframe></li><li>嘟督不噶油<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="//static.hdslb.com/miniloader.swf" flashvars="aid=16119183&page=1" pluginspage="//www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"><br>励志短片：坚不可摧<iframe height="498" width="510" src="" frameborder="0" allowfullscreen></iframe></li><li>嘟督不噶油<embed height="415" width="544" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="//static.hdslb.com/miniloader.swf" flashvars="aid=16119183&page=1" pluginspage="//http://m.yxgapp.com/d/mooc/GetShareShortVideo.html?courseId=4880"></li></ul>]]></content>
     
     <summary type="html">
     
