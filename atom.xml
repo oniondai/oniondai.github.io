@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-09T14:36:05.274Z</updated>
+  <updated>2017-11-10T08:33:11.945Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Test</title>
+    <link href="http://yoursite.com/2017/11/10/%E8%A7%86%E9%A2%91%E6%B5%8B%E8%AF%95/"/>
+    <id>http://yoursite.com/2017/11/10/视频测试/</id>
+    <published>2017-11-10T08:33:11.202Z</published>
+    <updated>2017-11-10T08:33:11.945Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>励志短片：坚不可摧<iframe height="498" width="510" src="http://m.yxgapp.com/d/mooc/GetShareShortVideo.html?courseId=4880" frameborder="0" allowfullscreen></iframe></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;励志短片：坚不可摧&lt;iframe height=&quot;498&quot; width=&quot;510&quot; src=&quot;http://m.yxgapp.com/d/mooc/GetShareShortVideo.html?courseId=4880&quot; frameborder=&quot;0&quot; al
+      
+    
+    </summary>
+    
+      <category term="测试" scheme="http://yoursite.com/categories/%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="测试" scheme="http://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>苏幕遮·碧云天</title>
