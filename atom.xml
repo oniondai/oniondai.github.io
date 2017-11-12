@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-12T06:05:04.247Z</updated>
+  <updated>2017-11-12T10:03:56.686Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>武陵春·春晚</title>
+    <link href="http://yoursite.com/2017/11/12/%E6%AD%A6%E9%99%B5%E6%98%A5_%E6%98%A5%E6%99%9A_%E6%9D%8E%E6%B8%85%E7%85%A7%EF%BC%88%E5%AE%8B%EF%BC%89/"/>
+    <id>http://yoursite.com/2017/11/12/武陵春_春晚_李清照（宋）/</id>
+    <published>2017-11-12T10:01:12.000Z</published>
+    <updated>2017-11-12T10:03:56.686Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="作者：李清照（宋）"><a href="#作者：李清照（宋）" class="headerlink" title="作者：李清照（宋）"></a>作者：李清照（宋）</h2><ul><li>风住尘香花已尽，日晚倦梳头。物是人非事事休，欲语泪先流。</li><li>闻说双溪春尚好，也拟泛轻舟。只恐双溪舴艋舟，载不动许多愁。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;作者：李清照（宋）&quot;&gt;&lt;a href=&quot;#作者：李清照（宋）&quot; class=&quot;headerlink&quot; title=&quot;作者：李清照（宋）&quot;&gt;&lt;/a&gt;作者：李清照（宋）&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;风住尘香花已尽，日晚倦梳头。物是人非事事休，欲语泪先流。&lt;/li&gt;
+&lt;l
+      
+    
+    </summary>
+    
+      <category term="诗词" scheme="http://yoursite.com/categories/%E8%AF%97%E8%AF%8D/"/>
+    
+    
+      <category term="每天一诗词" scheme="http://yoursite.com/tags/%E6%AF%8F%E5%A4%A9%E4%B8%80%E8%AF%97%E8%AF%8D/"/>
+    
+  </entry>
   
   <entry>
     <title>MARKDOWN语法测试与记忆</title>
