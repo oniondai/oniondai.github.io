@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script>
+    (function(){
+        if('passwd'){
+            if (prompt('请输入文章密码') !== 'passwd'){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="语法测试," />
+
+
+
+
+
+  <link rel="alternate" href="https://cybermap.kaspersky.com" title="戴毅者之行" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="1.超链接1.1超链接_行列式语法： []里写链接文字，()里写链接地址, ()中的”“中可以为链接指定title属性，title属性可加可不加。title属性的效果是鼠标悬停在链接上会出现指定的 title文字。链接文字’这样的形式。链接地址与链接标题前有一个空格。  代码:12励志短片[Unbroken](https://www.bilibili.com/video/av16202916/)励">
+<meta name="keywords" content="语法测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MARKDOWN语法测试与记忆">
+<meta property="og:url" content="http://yoursite.com/2017/11/12/MARKDOWN语法学习/index.html">
+<meta property="og:site_name" content="戴毅者之行">
+<meta property="og:description" content="1.超链接1.1超链接_行列式语法： []里写链接文字，()里写链接地址, ()中的”“中可以为链接指定title属性，title属性可加可不加。title属性的效果是鼠标悬停在链接上会出现指定的 title文字。链接文字’这样的形式。链接地址与链接标题前有一个空格。  代码:12励志短片[Unbroken](https://www.bilibili.com/video/av16202916/)励">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20171022113755379?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjY4ODQ1MDE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://yoursite.com/img/donkey1.jpg">
+<meta property="og:image" content="http://img.blog.csdn.net/20171022113755379?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjY4ODQ1MDE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://yoursite.com/img/donkey1.jpg">
+<meta property="og:updated_time" content="2017-11-12T06:05:04.247Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MARKDOWN语法测试与记忆">
+<meta name="twitter:description" content="1.超链接1.1超链接_行列式语法： []里写链接文字，()里写链接地址, ()中的”“中可以为链接指定title属性，title属性可加可不加。title属性的效果是鼠标悬停在链接上会出现指定的 title文字。链接文字’这样的形式。链接地址与链接标题前有一个空格。  代码:12励志短片[Unbroken](https://www.bilibili.com/video/av16202916/)励">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171022113755379?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjY4ODQ1MDE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/12/MARKDOWN语法学习/"/>
+
+
+
+
+
+  <title>MARKDOWN语法测试与记忆 | 戴毅者之行</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+    <script type="text/javascript" src="/live2d/script.js"></script>
+    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
+    <style>
+      #live2dcanvas {
+        position: fixed;
+        right: 0px;
+        z-index: 999;
+        pointer-events: none;
+        bottom: -30px;
+      }
+    </style>
+    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/haruto/haruto.model.json",0.5)</script>
+  
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">戴毅者之行</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">我知道那些夏天，就像青春一样回不来</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/12/MARKDOWN语法学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AICO">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="戴毅者之行">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MARKDOWN语法测试与记忆</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-12T10:35:12+08:00">
+                2017-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/测试/" itemprop="url" rel="index">
+                    <span itemprop="name">测试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,336
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-超链接"><a href="#1-超链接" class="headerlink" title="1.超链接"></a>1.超链接</h1><h2 id="1-1超链接-行列式"><a href="#1-1超链接-行列式" class="headerlink" title="1.1超链接_行列式"></a>1.1超链接_行列式</h2><h3 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h3><ul>
+<li>[]里写链接文字，()里写链接地址, ()中的”“中可以为链接指定title属性，title属性可加可不加。title属性的效果是鼠标悬停在链接上会出现指定的 title文字。<a href="链接地址 “链接标题”">链接文字</a>’这样的形式。链接地址与链接标题前有一个空格。</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码:"></a>代码:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">励志短片[Unbroken](https://www.bilibili.com/video/av16202916/)</div><div class="line">励志短片[Unbroken](https://www.bilibili.com/video/av16202916/ <span class="string">"Unbroken"</span>)</div></pre></td></tr></table></figure>
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果:"></a>效果:</h3><p>励志短片<a href="https://www.bilibili.com/video/av16202916/" target="_blank" rel="external">Unbroken</a><br>励志短片<a href="https://www.bilibili.com/video/av16202916/" title="Unbroken" target="_blank" rel="external">Unbroken</a></p>
+<h2 id="1-2超链接-参考式"><a href="#1-2超链接-参考式" class="headerlink" title="1.2超链接_参考式"></a>1.2超链接_参考式</h2><h3 id="语法：-1"><a href="#语法：-1" class="headerlink" title="语法："></a>语法：</h3><ul>
+<li>参考式超链接一般用在学术论文上面，或者另一种情况，如果某一个链接在文章中多处使用，那么使用引用的方式创建链接将非常好，它可以让你对链接进行统一的管理。</li>
+<li><p>如果链接文字本身可以做为链接标记，你也可以写成[链接文字][形参]。然后空一行</p>
+</li>
+<li><p>[形参]：链接地址的形式（表示实参）</p>
+</li>
+</ul>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码:"></a>代码:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">励志短片[Unbroken][<span class="number">1</span>],搜索引擎[Bilibili][<span class="number">2</span>]，还有我喜欢的[自由之翼][<span class="number">3</span>]</div><div class="line">[Bilibili][<span class="number">2</span>]常被称为B站，很受大家的欢迎。双十一单身狗节日过完了，[庆祝一下][]! [啦啦啦][<span class="number">4</span>]</div><div class="line"></div><div class="line">[<span class="number">1</span>]:https://www.bilibili.com/video/av16202916/ <span class="string">"Unbroken"</span></div><div class="line">[<span class="number">2</span>]:https://www.bilibili.com/video/av16202916/ <span class="string">"Bilibili"</span></div><div class="line">[3]:https://www.bilibili.com/video/av10441708/?from=search&amp;seid=14118665817875471617 "自由之翼"</div><div class="line">[庆祝一下]:http://www.baidu.com</div><div class="line">[<span class="number">4</span>]:https://www.bilibili.com/video/av16202916/</div></pre></td></tr></table></figure>
+<h3 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h3><ul>
+<li>励志短片<a href="https://www.bilibili.com/video/av16202916/" title="Unbroken" target="_blank" rel="external">Unbroken</a>,搜索引擎<a href="https://www.bilibili.com/video/av16202916/" title="Bilibili" target="_blank" rel="external">Bilibili</a>，还有我喜欢的<a href="https://www.bilibili.com/video/av10441708/?from=search&amp;seid=14118665817875471617" title="自由之翼" target="_blank" rel="external">自由之翼</a><br><a href="https://www.bilibili.com/video/av16202916/" title="Bilibili" target="_blank" rel="external">Bilibili</a>常被称为B站，很受大家的欢迎。双十一单身狗节日过完了，<a href="http://www.baidu.com" target="_blank" rel="external">庆祝一下</a>! <a href="https://www.bilibili.com/video/av16202916/" target="_blank" rel="external">啦啦啦</a></li>
+</ul>
+<h2 id="1-3自动链接"><a href="#1-3自动链接" class="headerlink" title="1.3自动链接"></a>1.3自动链接</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法:"></a>语法:</h3><p>Markdown支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用&lt;&gt;包起来,Markdown就会自动把它转成链接。一般网址的链接文字就和链接地址一样,例如：</p>
+<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码:"></a>代码:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">百度一下&lt;http://www.baidu.com&gt;</div></pre></td></tr></table></figure>
+<p>百度一下<a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a></p>
+<h1 id="2-引用"><a href="#2-引用" class="headerlink" title="2.引用"></a>2.引用</h1><h3 id="语法：-2"><a href="#语法：-2" class="headerlink" title="语法："></a>语法：</h3><ul>
+<li>在列表项目内放进引用格式：’空格’+  &gt;’<h3 id="代码-3"><a href="#代码-3" class="headerlink" title="代码:"></a>代码:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">* 你是真能睡</div><div class="line">  &gt; 这都几点了！</div><div class="line">  &gt; 还睡个鸡毛！</div><div class="line">  &gt; 起来High！</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="效果：-1"><a href="#效果：-1" class="headerlink" title="效果："></a>效果：</h3><ul>
+<li>你是真能睡<blockquote>
+<p>这都几点了！<br>还睡个鸡毛！<br>起来High！</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="3-多层嵌套"><a href="#3-多层嵌套" class="headerlink" title="3.多层嵌套"></a>3.多层嵌套</h1><h3 id="语法：-3"><a href="#语法：-3" class="headerlink" title="语法："></a>语法：</h3><ul>
+<li>区块引用可以嵌套，即引用内的引用，做法是根据层次加上不同数量的 “&gt;” 记得每一级嵌套加空行来区分！！</li>
+</ul>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>A:竟然有人说你像个傻子！我听完上去就是一巴掌！</div><div class="line"></div><div class="line">&gt;&gt; B:谢谢哥们！够义气！</div><div class="line"></div><div class="line">&gt; A:那他妈能叫像吗？本来就是！</div></pre></td></tr></table></figure>
+<h3 id="显示效果："><a href="#显示效果：" class="headerlink" title="显示效果："></a>显示效果：</h3><blockquote>
+<blockquote>
+<blockquote>
+<p>A:有人说你像个傻子！我听完上去就是一巴掌！</p>
+</blockquote>
+<p>B:谢谢你！够义气！</p>
+</blockquote>
+<p>A:那他妈能叫像吗？本来就是！</p>
+</blockquote>
+<h1 id="4-插入图片"><a href="#4-插入图片" class="headerlink" title="4.插入图片"></a>4.插入图片</h1><h2 id="4-1行内式"><a href="#4-1行内式" class="headerlink" title="4.1行内式"></a>4.1行内式</h2><h3 id="语法：-4"><a href="#语法：-4" class="headerlink" title="语法："></a>语法：</h3><p>格式：![图片Alt]+(图片地址 “图片Title”)<br>或者：![图片Alt]+(图片的绝对路径，在源目录下的source文件夹下新建img文件夹，将img中的图片作为绝对路径)</p>
+<h3 id="代码-4"><a href="#代码-4" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">* 可爱的小狗狗：</div><div class="line">![这里写图片描述](http://img.blog.csdn.net/20171022113755379?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjY4ODQ1MDE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)</div><div class="line">* ~~可爱的小狗狗~~ 这哪是狗？！明明是头驴！</div><div class="line">![明明是头驴](/img/donkey1.jpg)</div></pre></td></tr></table></figure>
+<h3 id="效果：-2"><a href="#效果：-2" class="headerlink" title="效果："></a>效果：</h3><ul>
+<li><p>可爱的小狗狗：<br><img src="http://img.blog.csdn.net/20171022113755379?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjY4ODQ1MDE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+</li>
+<li><p><del>可爱的小狗狗</del> 这哪是狗？！明明是头驴！<br><img src="/img/donkey1.jpg" alt="明明是头驴"></p>
+</li>
+</ul>
+<h2 id="4-2参考式"><a href="#4-2参考式" class="headerlink" title="4.2参考式"></a>4.2参考式</h2><h3 id="语法：-5"><a href="#语法：-5" class="headerlink" title="语法："></a>语法：</h3><ul>
+<li><p>在文档要插入图片的地方写![图片Alt][形参]</p>
+<p>文档最后空一行后写上<br>   [形参]:图片地址 “Title”（或者图片的绝对路径）</p>
+<h3 id="代码-5"><a href="#代码-5" class="headerlink" title="代码"></a>代码</h3></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">* 可爱的小狗狗：</div><div class="line">![这里写图片描述][a]</div><div class="line">* ~~可爱的小狗狗~~ 这哪是狗？！明明是头驴！</div><div class="line">![明明是头驴][b]</div><div class="line"></div><div class="line">[a]:http://img.blog.csdn.net/20171022113755379?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjY4ODQ1MDE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast</div><div class="line">[b]:/img/donkey1.jpg</div></pre></td></tr></table></figure>
+<h3 id="效果：-3"><a href="#效果：-3" class="headerlink" title="效果："></a>效果：</h3><ul>
+<li><p>可爱的小狗狗：<br><img src="http://img.blog.csdn.net/20171022113755379?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjY4ODQ1MDE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+</li>
+<li><p><del>可爱的小狗狗</del> 这哪是狗？！明明是头驴！<br><img src="/img/donkey1.jpg" alt="明明是头驴"></p>
+</li>
+</ul>
+<h1 id="5-代码行内式"><a href="#5-代码行内式" class="headerlink" title="5.代码行内式"></a>5.代码行内式</h1><h2 id="5-1格式一"><a href="#5-1格式一" class="headerlink" title="5.1格式一"></a>5.1格式一</h2><h3 id="语法：-6"><a href="#语法：-6" class="headerlink" title="语法："></a>语法：</h3><p>用两个”` “括起来</p>
+<h3 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">你知道`python`的语法吗？</div><div class="line">我不仅知道`python`语法，我还知道`java`呢，啦啦啦`codetesting,just <span class="keyword">for</span> fun`！</div></pre></td></tr></table></figure>
+<h3 id="效果：-4"><a href="#效果：-4" class="headerlink" title="效果："></a>效果：</h3><p>你知道<code>python</code>的语法吗？<br>我不仅知道<code>python</code>语法，我还知道<code>java</code>呢，啦啦啦<code>codetesting,just for fun</code>！</p>
+<h2 id="5-2格式二"><a href="#5-2格式二" class="headerlink" title="5.2格式二"></a>5.2格式二</h2><h3 id="语法：-7"><a href="#语法：-7" class="headerlink" title="语法："></a>语法：</h3><p>用六个” ` “ 表示</p>
+<h3 id="代码：-2"><a href="#代码：-2" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">三个`</div><div class="line">codetesting,just <span class="keyword">for</span> fun</div><div class="line">三个`</div></pre></td></tr></table></figure>
+<h3 id="效果：-5"><a href="#效果：-5" class="headerlink" title="效果："></a>效果：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">codetesting,just <span class="keyword">for</span> fun</div></pre></td></tr></table></figure>
+<h1 id="6-公式行内式"><a href="#6-公式行内式" class="headerlink" title="6.公式行内式"></a>6.公式行内式</h1><h2 id="6-1整行公式语法："><a href="#6-1整行公式语法：" class="headerlink" title="6.1整行公式语法："></a>6.1整行公式语法：</h2><h3 id="语法：-8"><a href="#语法：-8" class="headerlink" title="语法："></a>语法：</h3><p>$$表示整行（意外发现切换中文输入法shift + $ = ￥）</p>
+<h3 id="代码：-3"><a href="#代码：-3" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$$ \sum_&#123;i=1&#125;^n a_i=0 $$</div><div class="line">$$ f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2 $$</div><div class="line">$$ \sum^&#123;j-1&#125;_&#123;k=0&#125;&#123;\widehat&#123;\gamma&#125;_&#123;kj&#125; z_k&#125; $$</div></pre></td></tr></table></figure>
+<h3 id="效果：-6"><a href="#效果：-6" class="headerlink" title="效果："></a>效果：</h3><p>$$ \sum_{i=1}^n a_i=0 $$<br>$$ f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x<em>n^2 $$<br>$$ \sum^{j-1}</em>{k=0}{\widehat{\gamma}_{kj} z_k} $$</p>
+<h2 id="6-2行内式表公式语法："><a href="#6-2行内式表公式语法：" class="headerlink" title="6.2行内式表公式语法："></a>6.2行内式表公式语法：</h2><p> $表示行内公式</p>
+<h3 id="代码：-4"><a href="#代码：-4" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">动量公式$ p=mv $</div><div class="line">初速度为零的加速运动位移：$ s=1/2at^2 $</div></pre></td></tr></table></figure>
+<h3 id="效果：-7"><a href="#效果：-7" class="headerlink" title="效果："></a>效果：</h3><p>  动量公式：$ p=mv $<br>  初速度为零的加速运动位移：$ s=1/2at^2 $</p>
+<h1 id="7-标题分级"><a href="#7-标题分级" class="headerlink" title="7.标题分级"></a>7.标题分级</h1><h3 id="代码：-5"><a href="#代码：-5" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 一级标题</div><div class="line">## 二级标题</div><div class="line">### 三级标题</div></pre></td></tr></table></figure>
+<h3 id="效果-1"><a href="#效果-1" class="headerlink" title="效果"></a>效果</h3><ul>
+<li>效果展示<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3></li>
+<li>效果展示<h1 id="8-其他"><a href="#8-其他" class="headerlink" title="8.其他"></a>8.其他</h1><h3 id="代码：-6"><a href="#代码：-6" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">*斜体*</div><div class="line">_斜体_</div><div class="line">**粗体**</div><div class="line">***粗斜体***</div><div class="line">~~删除线~~</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="效果：-8"><a href="#效果：-8" class="headerlink" title="效果："></a>效果：</h3><p><em>斜体</em><br><em>斜体</em><br><strong>粗体</strong><br><strong><em>粗斜体</em></strong></p>
+<h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a><del>删除线</del></h2><h1 id="完结撒花！"><a href="#完结撒花！" class="headerlink" title="~-~-~-完结撒花！-~-~-~"></a>~-~-~-完结撒花！-~-~-~</h1>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="AICO 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="AICO 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+	<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-heart-o"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+  
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/语法测试/" rel="tag"><i class="fa fa-tag"></i> 语法测试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/11/UNBROKEN/" rel="next" title="UNBROKEN">
+                <i class="fa fa-chevron-left"></i> UNBROKEN
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="uyan_frame"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="AICO" />
+            
+              <p class="site-author-name" itemprop="name">AICO</p>
+              <p class="site-description motion-element" itemprop="description">重拾旧好，记录生活</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="https://cybermap.kaspersky.com" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/discover" target="_blank" title="Google">
+                    
+                      <i class="fa fa-fw fa-globe"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/u/5713417931?refer_flag=1001030102_&is_hot=1" target="_blank" title="WeBlog">
+                    
+                      <i class="fa fa-fw fa-globe"></i>WeBlog</a>
+                </span>
+              
+            
+          </div>
+		 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=20110049&auto=1&height=66"></iframe>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-超链接"><span class="nav-number">1.</span> <span class="nav-text">1.超链接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1超链接-行列式"><span class="nav-number">1.1.</span> <span class="nav-text">1.1超链接_行列式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法："><span class="nav-number">1.1.1.</span> <span class="nav-text">语法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">1.1.2.</span> <span class="nav-text">代码:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果"><span class="nav-number">1.1.3.</span> <span class="nav-text">效果:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2超链接-参考式"><span class="nav-number">1.2.</span> <span class="nav-text">1.2超链接_参考式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法：-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">语法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">代码:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果："><span class="nav-number">1.2.3.</span> <span class="nav-text">效果：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3自动链接"><span class="nav-number">1.3.</span> <span class="nav-text">1.3自动链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法"><span class="nav-number">1.3.1.</span> <span class="nav-text">语法:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">代码:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-引用"><span class="nav-number">2.</span> <span class="nav-text">2.引用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法：-2"><span class="nav-number">2.0.1.</span> <span class="nav-text">语法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-3"><span class="nav-number">2.0.2.</span> <span class="nav-text">代码:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果：-1"><span class="nav-number">2.0.3.</span> <span class="nav-text">效果：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-多层嵌套"><span class="nav-number">3.</span> <span class="nav-text">3.多层嵌套</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法：-3"><span class="nav-number">3.0.1.</span> <span class="nav-text">语法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码："><span class="nav-number">3.0.2.</span> <span class="nav-text">代码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示效果："><span class="nav-number">3.0.3.</span> <span class="nav-text">显示效果：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-插入图片"><span class="nav-number">4.</span> <span class="nav-text">4.插入图片</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1行内式"><span class="nav-number">4.1.</span> <span class="nav-text">4.1行内式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法：-4"><span class="nav-number">4.1.1.</span> <span class="nav-text">语法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-4"><span class="nav-number">4.1.2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果：-2"><span class="nav-number">4.1.3.</span> <span class="nav-text">效果：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2参考式"><span class="nav-number">4.2.</span> <span class="nav-text">4.2参考式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法：-5"><span class="nav-number">4.2.1.</span> <span class="nav-text">语法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-5"><span class="nav-number">4.2.2.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果：-3"><span class="nav-number">4.2.3.</span> <span class="nav-text">效果：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-代码行内式"><span class="nav-number">5.</span> <span class="nav-text">5.代码行内式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1格式一"><span class="nav-number">5.1.</span> <span class="nav-text">5.1格式一</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法：-6"><span class="nav-number">5.1.1.</span> <span class="nav-text">语法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码：-1"><span class="nav-number">5.1.2.</span> <span class="nav-text">代码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果：-4"><span class="nav-number">5.1.3.</span> <span class="nav-text">效果：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2格式二"><span class="nav-number">5.2.</span> <span class="nav-text">5.2格式二</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法：-7"><span class="nav-number">5.2.1.</span> <span class="nav-text">语法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码：-2"><span class="nav-number">5.2.2.</span> <span class="nav-text">代码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果：-5"><span class="nav-number">5.2.3.</span> <span class="nav-text">效果：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-公式行内式"><span class="nav-number">6.</span> <span class="nav-text">6.公式行内式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1整行公式语法："><span class="nav-number">6.1.</span> <span class="nav-text">6.1整行公式语法：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法：-8"><span class="nav-number">6.1.1.</span> <span class="nav-text">语法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码：-3"><span class="nav-number">6.1.2.</span> <span class="nav-text">代码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果：-6"><span class="nav-number">6.1.3.</span> <span class="nav-text">效果：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2行内式表公式语法："><span class="nav-number">6.2.</span> <span class="nav-text">6.2行内式表公式语法：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码：-4"><span class="nav-number">6.2.1.</span> <span class="nav-text">代码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果：-7"><span class="nav-number">6.2.2.</span> <span class="nav-text">效果：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-标题分级"><span class="nav-number">7.</span> <span class="nav-text">7.标题分级</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码：-5"><span class="nav-number">7.0.1.</span> <span class="nav-text">代码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果-1"><span class="nav-number">7.0.2.</span> <span class="nav-text">效果</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一级标题"><span class="nav-number">8.</span> <span class="nav-text">一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二级标题"><span class="nav-number">8.1.</span> <span class="nav-text">二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三级标题"><span class="nav-number">8.1.1.</span> <span class="nav-text">三级标题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-其他"><span class="nav-number">9.</span> <span class="nav-text">8.其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代码：-6"><span class="nav-number">9.0.1.</span> <span class="nav-text">代码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果：-8"><span class="nav-number">9.0.2.</span> <span class="nav-text">效果：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除线"><span class="nav-number">9.1.</span> <span class="nav-text">删除线</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#完结撒花！"><span class="nav-number">10.</span> <span class="nav-text">~-~-~-完结撒花！-~-~-~</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+   <i class="fa fa-heartbeat" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AICO</span>
+
+  
+</div>
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+ <!-- 
+ <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+ -->
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <!-- 
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+  -->
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共8.7k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+
+    
+      <!-- UY BEGIN -->
+      <div id="uyan_frame"></div>
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2148098"></script>
+      <!-- UY END -->
+    
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+    <script type="text/javascript" src="/live2d/script.js"></script>
+    <canvas id="live2dcanvas" width="150" height="300" class="live2d"></canvas>
+    <style>
+      #live2dcanvas {
+        position: fixed;
+        right: 0px;
+        z-index: 999;
+        pointer-events: none;
+        bottom: -30px;
+      }
+    </style>
+    <script>loadlive2d("live2dcanvas" ,"/live2d/assets/haruto/haruto.model.json",0.5)</script>
+  
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
