@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-22T02:47:08.615Z</updated>
+  <updated>2017-11-25T08:08:15.696Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>美梦</title>
+    <link href="http://yoursite.com/2017/11/25/%E8%BD%A6%E4%B9%8B%E6%A2%A6/"/>
+    <id>http://yoursite.com/2017/11/25/车之梦/</id>
+    <published>2017-11-25T07:56:25.000Z</published>
+    <updated>2017-11-25T08:08:15.696Z</updated>
+    
+    <content type="html"><![CDATA[<p>A：今天跟师兄讨论了一下,以后工作两年买车的事宜，买哪辆车比较好呢，还是说用两年就换一辆呢<br>B：哎！哥们醒醒，别睡了，赶紧学习吧…</p><ul><li>捷豹XFL<br><img src="/img/捷豹XFL.jpg" alt="捷豹XFL"></li><li><p>Tesla model_s<br><img src="/img/TESLA_model_S.jpg" alt="Tesla model_s"></p></li><li><p>路虎揽胜<br><img src="/img/路虎揽胜.jpg" alt="路虎揽胜"></p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;A：今天跟师兄讨论了一下,以后工作两年买车的事宜，买哪辆车比较好呢，还是说用两年就换一辆呢&lt;br&gt;B：哎！哥们醒醒，别睡了，赶紧学习吧…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;捷豹XFL&lt;br&gt;&lt;img src=&quot;/img/捷豹XFL.jpg&quot; alt=&quot;捷豹XFL&quot;&gt;&lt;/li&gt;
+&lt;l
+      
+    
+    </summary>
+    
+      <category term="周记" scheme="http://yoursite.com/categories/%E5%91%A8%E8%AE%B0/"/>
+    
+    
+      <category term="美梦" scheme="http://yoursite.com/tags/%E7%BE%8E%E6%A2%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>工资个人所得税算法</title>
+    <link href="http://yoursite.com/2017/11/25/2017_11_25%E5%B7%A5%E8%B5%84%E4%B8%AA%E4%BA%BA%E6%89%80%E5%BE%97%E7%A8%8E%E7%AE%97%E6%B3%95/"/>
+    <id>http://yoursite.com/2017/11/25/2017_11_25工资个人所得税算法/</id>
+    <published>2017-11-25T07:54:25.000Z</published>
+    <updated>2017-11-25T07:56:21.677Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>每年交税20万，请问年薪是多少？<br><img src="/img/工资税算法.jpg" alt="交税"><br>但愿六年后，我的年薪也能为祖国捐那么多的税。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;每年交税20万，请问年薪是多少？&lt;br&gt;&lt;img src=&quot;/img/工资税算法.jpg&quot; alt=&quot;交税&quot;&gt;&lt;br&gt;但愿六年后，我的年薪也能为祖国捐那么多的税。&lt;/li&gt;
+&lt;/ul&gt;
+
+      
+    
+    </summary>
+    
+      <category term="周记" scheme="http://yoursite.com/categories/%E5%91%A8%E8%AE%B0/"/>
+    
+    
+      <category term="随想" scheme="http://yoursite.com/tags/%E9%9A%8F%E6%83%B3/"/>
+    
+  </entry>
   
   <entry>
     <title>2017_11_22写给自己</title>
@@ -493,56 +549,6 @@
     
     
       <category term="每天一诗词" scheme="http://yoursite.com/tags/%E6%AF%8F%E5%A4%A9%E4%B8%80%E8%AF%97%E8%AF%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python字符串/元组/列表/字典互转</title>
-    <link href="http://yoursite.com/2017/11/05/python%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
-    <id>http://yoursite.com/2017/11/05/python相关知识点/</id>
-    <published>2017-11-05T13:39:44.000Z</published>
-    <updated>2017-11-06T01:44:08.812Z</updated>
-    
-    <content type="html"><![CDATA[<p> <del>-<em>-coding:utf-8-</em>-</del></p><ul><li>1、字典<br>例<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dict = &#123;<span class="string">'name'</span>: <span class="string">'Zara'</span>, <span class="string">'age'</span>: <span class="number">7</span>, <span class="string">'class'</span>: <span class="string">'First'</span>&#125;</div></pre></td></tr></table></figure></li></ul><p>字典转为字符串，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;type <span class="string">'str'</span>&gt; &#123;<span class="string">'age'</span>: <span class="number">7</span>, <span class="string">'name'</span>: <span class="string">'Zara'</span>, <span class="string">'class'</span>: <span class="string">'First'</span>&#125;</div><div class="line"><span class="keyword">print</span> type(str(dict)), str(dict)</div></pre></td></tr></table></figure></p><p>字典可以转为元组，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(<span class="string">'age'</span>, <span class="string">'name'</span>, <span class="string">'class'</span>)</div><div class="line"><span class="keyword">print</span> tuple(dict)</div></pre></td></tr></table></figure></p><p>字典可以转为元组，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(<span class="number">7</span>, <span class="string">'Zara'</span>, <span class="string">'First'</span>)</div><div class="line"><span class="keyword">print</span> tuple(dict.values())</div></pre></td></tr></table></figure></p><p>字典转为列表，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="string">'age'</span>, <span class="string">'name'</span>, <span class="string">'class'</span>]</div><div class="line"><span class="keyword">print</span> list(dict)</div></pre></td></tr></table></figure></p><p>字典转为列表<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> dict.values</div></pre></td></tr></table></figure></p><ul><li>2、元组<br>例<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tup=(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</div></pre></td></tr></table></figure></li></ul><p>元组转为字符串，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</div><div class="line"><span class="keyword">print</span> tup.__str__()</div></pre></td></tr></table></figure></p><p>元组转为列表，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</div><div class="line"><span class="keyword">print</span> list(tup)</div></pre></td></tr></table></figure></p><p>元组不可以转为字典</p><ul><li>3、列表<br>例<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nums=[<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">13</span>, <span class="number">20</span>];</div></pre></td></tr></table></figure></li></ul><p>列表转为字符串，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">13</span>, <span class="number">20</span>]</div><div class="line"><span class="keyword">print</span> str(nums)</div></pre></td></tr></table></figure></p><p>列表转为元组，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">13</span>, <span class="number">20</span>)</div><div class="line"><span class="keyword">print</span> tuple(nums)</div></pre></td></tr></table></figure></p><p>列表不可以转为字典</p><ul><li>4、字符串</li></ul><p>字符串转为元组，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</div><div class="line"><span class="keyword">print</span> tuple(eval(<span class="string">"(1,2,3)"</span>))</div></pre></td></tr></table></figure></p><p>字符串转为列表，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line"><span class="keyword">print</span> list(eval(<span class="string">"(1,2,3)"</span>))</div></pre></td></tr></table></figure></p><p>字符串转为字典，返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;type <span class="string">'dict'</span>&gt;</div><div class="line"><span class="keyword">print</span> type(eval(<span class="string">"&#123;'name':'ljq', 'age':24&#125;"</span>))</div></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt; &lt;del&gt;-&lt;em&gt;-coding:utf-8-&lt;/em&gt;-&lt;/del&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;1、字典&lt;br&gt;例&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div clas
-      
-    
-    </summary>
-    
-      <category term="学习" scheme="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="编程" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>To Liuhuan Dai</title>
-    <link href="http://yoursite.com/2017/11/05/%E5%AF%84%E8%AF%AD/"/>
-    <id>http://yoursite.com/2017/11/05/寄语/</id>
-    <published>2017-11-05T13:36:44.000Z</published>
-    <updated>2017-11-09T15:11:06.958Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li><a id="more"></a>都说高考能改变人的命运，经验告诉我，考研究生才能真正改变人的命运，拿半年的辛苦，换来一辈子的高报酬</li><li>有时候感觉周六周天，如果不看书，不知道要干什么。想玩的时候我就会出去玩，比如上午我学了一上午，下午我就出去玩，买了一些东西。到了晚上我会来实验室学到十二点</li><li>这个东西真的不是为别人打工，是在给自己做投资，给自己镀金。</li><li>你可学你想学的，但不能不学，不能不考研</li><li>人真的会受环境的影响，你身边的人。只有进入优秀的环境，你的思想就会进入另一个阶层，自己也会变得优秀</li><li>给自己定个目标！无论遇到什么困难，不要怀疑自己，尝试去解决！</li><li>不希望看到你大学毕业后一事无成沦为平庸的人</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="寄语" scheme="http://yoursite.com/categories/%E5%AF%84%E8%AF%AD/"/>
-    
-    
-      <category term="加油吧" scheme="http://yoursite.com/tags/%E5%8A%A0%E6%B2%B9%E5%90%A7/"/>
     
   </entry>
   
