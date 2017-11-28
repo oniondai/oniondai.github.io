@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-11-25T08:08:15.696Z</updated>
+  <updated>2017-11-28T10:57:01.166Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2017_11_28杂记</title>
+    <link href="http://yoursite.com/2017/11/28/2017_11_28%E6%9D%82%E8%AE%B0/"/>
+    <id>http://yoursite.com/2017/11/28/2017_11_28杂记/</id>
+    <published>2017-11-28T10:47:28.000Z</published>
+    <updated>2017-11-28T10:57:01.166Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>公寓办值班一天</li><li>看到朋友圈，哈尔滨又是鹅毛大雪。挺怀念的</li><li>回来上课，很疲惫，什么都不想做</li></ul><p><img src="/img/鹅毛大雪1.jpg" alt="鹅毛大雪1"></p><p><img src="/img/鹅毛大雪2.jpg" alt="鹅毛大雪2"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;公寓办值班一天&lt;/li&gt;
+&lt;li&gt;看到朋友圈，哈尔滨又是鹅毛大雪。挺怀念的&lt;/li&gt;
+&lt;li&gt;回来上课，很疲惫，什么都不想做&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;/img/鹅毛大雪1.jpg&quot; alt=&quot;鹅毛大雪1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src
+      
+    
+    </summary>
+    
+      <category term="周记" scheme="http://yoursite.com/categories/%E5%91%A8%E8%AE%B0/"/>
+    
+    
+      <category term="空白" scheme="http://yoursite.com/tags/%E7%A9%BA%E7%99%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>美梦</title>
@@ -522,33 +553,6 @@
     
     
       <category term="编程" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>岳阳楼记</title>
-    <link href="http://yoursite.com/2017/11/06/%E5%B2%B3%E9%98%B3%E6%A5%BC%E8%AE%B0_%E8%8C%83%E4%BB%B2%E6%B7%B9(%E5%AE%8B)/"/>
-    <id>http://yoursite.com/2017/11/06/岳阳楼记_范仲淹(宋)/</id>
-    <published>2017-11-06T01:52:42.943Z</published>
-    <updated>2017-11-09T14:30:47.842Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="范仲淹-宋"><a href="#范仲淹-宋" class="headerlink" title="范仲淹(宋)"></a>范仲淹(宋)</h1><hr><ul><li>庆历四年春，滕子京谪守巴陵郡。越明年，政通人和，百废具兴。乃重修岳阳楼，增其旧制，刻唐贤今人诗赋于其上。属予作文以记之。</li><li>予观夫巴陵胜状，在洞庭一湖。衔远山，吞长江，浩浩汤汤，横无际涯；朝晖夕阴，气象万千。此则岳阳楼之大观也，前人之述备矣。然则北通巫峡，南极潇湘，迁客骚人，多会于此，览物之情，得无异乎?</li><li>若夫霪雨霏霏，连月不开，阴风怒号，浊浪排空；日星隐曜，山岳潜形；商旅不行，樯倾楫摧；薄暮冥冥，虎啸猿啼。登斯楼也，则有去国怀乡，忧谗畏讥，满目萧然，感极而悲者矣。</li><li>至若春和景明，波澜不惊，上下天光，一碧万顷；沙鸥翔集，锦鳞游泳；岸芷汀兰，郁郁青青。而或长烟一空，皓月千里，浮光跃金，静影沉璧，渔歌互答，此乐何极！登斯楼也，则有心旷神怡，宠辱偕忘，把酒临风，其喜洋洋者矣。</li><li>嗟夫！予尝求古仁人之心，或异二者之为，何哉？不以物喜，不以己悲；居庙堂之高则忧其民；处江湖之远则忧其君。是进亦忧，退亦忧。然则何时而乐耶？其必曰：“先天下之忧而忧，后天下之乐而乐”乎。噫！微斯人，吾谁与归？</li><li>时六年九月十五日。</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;范仲淹-宋&quot;&gt;&lt;a href=&quot;#范仲淹-宋&quot; class=&quot;headerlink&quot; title=&quot;范仲淹(宋)&quot;&gt;&lt;/a&gt;范仲淹(宋)&lt;/h1&gt;&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;庆历四年春，滕子京谪守巴陵郡。越明年，政通人和，百废具兴。乃重修岳阳楼，增其旧制，刻唐贤今
-      
-    
-    </summary>
-    
-      <category term="诗词" scheme="http://yoursite.com/categories/%E8%AF%97%E8%AF%8D/"/>
-    
-    
-      <category term="每天一诗词" scheme="http://yoursite.com/tags/%E6%AF%8F%E5%A4%A9%E4%B8%80%E8%AF%97%E8%AF%8D/"/>
     
   </entry>
   
